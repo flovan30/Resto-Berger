@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #fff;
+}
+
+.contactUS {
+    position: relative;
+    width: 100%;
+    padding: 40px 100px;
+}
+
+.contactUS .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+}
+
+.contactUS .title h2 {
+    color: #FF8D06;
+    font-weight: 500;
+}
+
+.signin {
+    grid-area: signin;
+}
+
+.login {
+    grid-area: login;
+}
+
+.contact {
+    padding: 40px;
+    background: #9B0F00;
+    box-shadow: 0 5px 35px rgba(0, 0, 0, 0.15);
+}
+
+.box {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 5fr 4fr;
+    grid-template-areas: "signin login";
+    grid-gap: 20px;
+    margin-top: 20px;
+}
+
+.contact h3 {
+    color: #fff;
+    font-weight: 500;
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+
+
+/* sign in */
+
+.formBox {
+    position: relative;
+    width: 75%;
+}
+
+.formBox .row50 {
+    display: flex;
+    gap: 10px;
+}
+
+.inputBox {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    width: 50%;
+}
+
+.inputBox span {
+    color: #fff;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.inputBox input {
+    padding: 5px;
+    font-size: 1.1em;
+    outline: none;
+    border: 1px solid #333;
+}
+
+.inputBox textarea {
+    padding: 10px;
+    font-size: 1.1em;
+    outline: none;
+    border: 1px solid #333;
+    resize: none;
+    min-height: 220px;
+    margin-bottom: 10px;
+}
+
+.inputBox input[type="submit"] {
+    background: #FF8D06;
+    color: #fff;
+    border: none;
+    font-size: 1.1em;
+    max-width: 120px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 14px 15px;
+}
+
+.inputBox ::placeholder {
+    color: #999;
+}
+
+
+/* login */
+
+.login {
+    background: #9B0F00;
+}
+
+.login h3 {
+    color: #fff;
+}
+
+.login .infoBox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.login .infoBox span {
+    min-width: 40px;
+    height: 40px;
+    color: #fff;
+    background: #FF8D06;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.login .infoBox p {
+    color: #fff;
+    font-size: 1.1em;
+}
+
+.login .infoBox a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+
+/* Responsive */
+
+@media (max-width: 991px) {
+    body {
+        background: #fff;
+    }
+    .contactUS {
+        padding: 20px;
+    }
+    .box {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: "signin" "login";
+    }
+    }
+    .formBox .row50 {
+        display: flex;
+        gap: 0;
+        flex-direction: column;
+    }
+    .inputBox {
+        width: 100%;
+    }
+    .contact {
+        padding: 30px;
+    }
+}

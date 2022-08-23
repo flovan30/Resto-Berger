@@ -1,0 +1,14 @@
+body {
+    background-color: rgb(93, 164, 173);
+}
+
+.titre {
+    color: red;
+    font-size: xx-large;
+}
+
+.important {
+    color: blue;
+    font-size: medium;
+    font-weight: bolder;
+}

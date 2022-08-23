@@ -1,0 +1,11 @@
+Le site n'est pas terminé, le système de connexion ne fonctionne pas, nous n'avons pas réussi à faire le 
+système de réservation ne fonctionne pas nom plus, la page de contact doit être transformé en page 
+qui recolte les avis des clients.
+
+nous sommes restés bloqués un bon momment sur la création de la base de données car nous n'avions pas vu ça en cours 
+est il nous la fallait absolument pour continuer le projet
+
+de plus sur la page administrateur lors de l'enregistrement d'un plat il y avais la possibilité d'uplodé une image du plat qui était
+stocker sur le serveur, cette fonctionnalité fonctionne en mode localhost mais pas sur un hebergeur
+
+voici le lien du site hébérgé : https://resto-berger.000webhostapp.com/index.html

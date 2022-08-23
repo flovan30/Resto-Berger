@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="style/style_connexion.css" />
+    <link rel="stylesheet" type="text/css" href="style/style_nav.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <title>Gastro-Berger-restaurant</title>
+</head>
+
+<body>
+    <!-- NavBar -->
+    <div class="nav">
+        <ul>
+            <!-- Logo -->
+            <li>
+                <img src="images/gaston_berger.png" class="logo">
+            </li>
+
+            <!-- Lien vers l'accueil -->
+            <li>
+                <a href="index.html">
+                    <div class="icon">
+                        <i class="fas fa-home" aria-hidden="true"></i>
+                        <i class="fas fa-home" aria-hidden="true"></i>
+                    </div>
+                    <div class="name"><span data-text="Accueil">Accueil</span></div>
+                </a>
+            </li>
+
+            <!-- Lien vers le menu -->
+            <li>
+                <a href="menu.html">
+                    <div class="icon">
+                        <i class="fas fa-utensils"></i>
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="name"><span data-text="Menu">Menu</span></div>
+                </a>
+            </li>
+
+            <!-- Lien vers la reservation -->
+            <li>
+                <a href="reservation.html">
+                    <div class="icon">
+                        <i class="fas fa-concierge-bell"></i>
+                        <i class="fas fa-concierge-bell"></i>
+                    </div>
+                    <div class="name"><span data-text="Réservation">Réservation</span></div>
+                </a>
+            </li>
+
+            <!-- Lien vers la page de contact -->
+            <li>
+                <a href="contact.html">
+                    <div class="icon">
+                        <i class="fas fa-id-card"></i>
+                        <i class="fas fa-id-card"></i>
+                    </div>
+                    <div class="name"><span data-text="Contact">Contact</span></div>
+                </a>
+            </li>
+
+            <!-- Lien vers la connexion -->
+            <li>
+                <a href="connexion.html">
+                    <div class="icon">
+                        <i class='fas fa-key'></i>
+                        <i class='fas fa-key'></i>
+                    </div>
+                    <div class="name"><span data-text="Connexion">Connexion</span></div>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+
+    <br><br><br><br><br>
+
+    <div class="contactUS">
+
+        <div class="title">
+            <h2>Vous avez un compte chez nous ?</h2>
+        </div>
+
+        <div class="box">
+
+            <div class="contact signin">
+                <h3>Si vous n'avez pas de compte, inscrivez vous !</h3>
+
+                <form action="traitement_php/inscription.php" method="post">
+                    <div class="formBox">
+
+                        <div class="row50">
+
+                            <div class="inputBox">
+                                <span>Votre prénom : </span>
+                                <input type="text" name="prenomClient" placeholder="John">
+                            </div>
+
+                            <div class="inputBox">
+                                <span>Votre nom : </span>
+                                <input type="text" name="nomClient" placeholder="Doe">
+                            </div>
+
+                            <div class="inputBox">
+                                <span>Votre e-mail : </span>
+                                <input type="text" name="mailClient" placeholder="johndoe@email.com">
+                            </div>
+
+                            <div class="inputBox">
+                                <span>Votre numéro de téléphone : </span>
+                                <input type="tel" name="telClient" placeholder="0* ** ** ** **">
+                            </div>
+
+                            <div class="inputBox">
+                                <span>Votre mot de passe : </span>
+                                <input type="password" name="mdpClient" placeholder="********">
+                            </div>
+
+                            <div class="inputBox">
+                                <span>Confirmez votre mot de passe : </span>
+                                <input type="password" name="confirme_mdpClient" placeholder="********">
+                            </div>
+                        </div>
+
+                        <div class="row100">
+                            <div class="inputBox">
+                                <input type="submit" value="Envoyer">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+
+
+            <div class="contact login">
+                <h3>Si vous avez un compte, connectez vous !</h3>
+
+                <form action="traitement_php/connexion.php" method="post">
+                    <div class="formBox">
+
+                        <div class="row50">
+
+                            <div class="inputBox">
+                                <span>Votre mail : </span>
+                                <input type="text" name="mail" placeholder="JDOE">
+                            </div>
+
+                            <div class="inputBox">
+                                <span>Votre mot de passe : </span>
+                                <input type="password" name="motdepasse" placeholder="********">
+                            </div>
+
+                        </div>
+
+                        <div class="row100">
+                            <div class="inputBox">
+                                <input type="submit" value="Envoyer">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+</body>
+
+</html>

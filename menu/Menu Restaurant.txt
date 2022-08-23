@@ -1,0 +1,73 @@
+5 entrées 
+
+- Toast de chevre chaud
+Prix : 3.50€
+
+- Salade aux oeufs durs
+Prix : 3.50€
+
+- Soupe au potiron chataigne au foie gras
+Prix : 7.00€
+
+- Terrine de foie gras
+Prix : 8.00€
+
+- Verrine avocat saumon fumé
+Prix : 5.00€
+
+--------------------------------
+
+5 plats
+
+- Spaghetti sauce tomate
+Prix : 6.00€
+
+- Bruschetta 
+Prix : 6.00€
+
+- Filet mignon sauce a l'ail et au romarin
+Prix : 8.00€
+
+- Hachis parmentier
+Prix : 6.00€
+
+- Magrets de canard et légumes rotis
+Prix : 8.00€
+
+--------------------------------
+
+5 desserts
+
+- Eclair au chocolat
+Prix : 3.00€
+
+- Flan
+Prix : 3.50
+
+- Tarte aux fraises
+Prix : 4.50€
+
+- Tiramisu
+Prix : 5.50€
+
+- Verrine fruits rouges
+Prix : 4.00€
+
+--------------------------------
+
+5 boissons 
+
+- Eau vittel 33cl
+Prix : 0.50€
+
+- Eau pétillante San Pellegrino 33cl
+Prix : 1.00€
+
+- Coca Cola 33cl
+Prix : 2.00€
+
+- Fanta 33cl
+Prix : 2.00€
+
+- Ice Tea peche 33cl
+Prix : 2.00€
