@@ -17,70 +17,70 @@
 
 <body>
     <!-- NavBar -->
-        <div class="nav">
-            <ul>
-                <!-- Logo -->
-                <li>
-                    <img src="images/gaston_berger.png" class="logo">
-                </li>
+    <div class="nav">
+        <ul>
+            <!-- Logo -->
+            <li>
+                <img src="images/gaston_berger.png" class="logo">
+            </li>
 
-                <!-- Lien vers l'accueil -->
-                <li>
-                    <a href="index.html">
-                        <div class="icon">
-                            <i class="fas fa-home" aria-hidden="true"></i>
-                            <i class="fas fa-home" aria-hidden="true"></i>
-                        </div>
-                        <div class="name"><span data-text="Accueil">Accueil</span></div>
-                    </a>
-                </li>
+            <!-- Lien vers l'accueil -->
+            <li>
+                <a href="index.html">
+                    <div class="icon">
+                        <i class="fas fa-home" aria-hidden="true"></i>
+                        <i class="fas fa-home" aria-hidden="true"></i>
+                    </div>
+                    <div class="name"><span data-text="Accueil">Accueil</span></div>
+                </a>
+            </li>
 
-                <!-- Lien vers le menu -->
-                <li>
-                    <a href="menu.html">
-                        <div class="icon">
-                            <i class="fas fa-utensils"></i>
-                            <i class="fas fa-utensils"></i>
-                        </div>
-                        <div class="name"><span data-text="Menu">Menu</span></div>
-                    </a>
-                </li>
+            <!-- Lien vers le menu -->
+            <li>
+                <a href="menu.html">
+                    <div class="icon">
+                        <i class="fas fa-utensils"></i>
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="name"><span data-text="Menu">Menu</span></div>
+                </a>
+            </li>
 
-                <!-- Lien vers la reservation -->
-                <li>
-                    <a href="reservation.html">
-                        <div class="icon">
-                            <i class="fas fa-concierge-bell"></i>
-                            <i class="fas fa-concierge-bell"></i>
-                        </div>
-                        <div class="name"><span data-text="Réservation">Réservation</span></div>
-                    </a>
-                </li>
+            <!-- Lien vers la reservation -->
+            <li>
+                <a href="reservation.html">
+                    <div class="icon">
+                        <i class="fas fa-concierge-bell"></i>
+                        <i class="fas fa-concierge-bell"></i>
+                    </div>
+                    <div class="name"><span data-text="Réservation">Réservation</span></div>
+                </a>
+            </li>
 
-                <!-- Lien vers la page de contact -->
-                <li>
-                    <a href="Contact.html">
-                        <div class="icon">
-                            <i class="fas fa-id-card"></i>
-                            <i class="fas fa-id-card"></i>
-                        </div>
-                        <div class="name"><span data-text="Contact">Contact</span></div>
-                    </a>
-                </li>
+            <!-- Lien vers la page de contact -->
+            <li>
+                <a href="Contact.html">
+                    <div class="icon">
+                        <i class="fas fa-id-card"></i>
+                        <i class="fas fa-id-card"></i>
+                    </div>
+                    <div class="name"><span data-text="Contact">Contact</span></div>
+                </a>
+            </li>
 
-                <!-- Lien vers la connexion -->
-                <li>
-                    <a href="connexion.html">
-                        <div class="icon">
-                            <i class='fas fa-key'></i>
-                            <i class='fas fa-key'></i>
-                        </div>
-                        <div class="name"><span data-text="Connexion">Connexion</span></div>
-                    </a>
-                </li>
-            </ul>
-            <br><br><br><br>
-        </div>
+            <!-- Lien vers la connexion -->
+            <li>
+                <a href="connexion.html">
+                    <div class="icon">
+                        <i class='fas fa-key'></i>
+                        <i class='fas fa-key'></i>
+                    </div>
+                    <div class="name"><span data-text="Connexion">Connexion</span></div>
+                </a>
+            </li>
+        </ul>
+        <br><br><br><br>
+    </div>
 
     <div class="contactUS">
 
@@ -96,18 +96,18 @@
 
                             <div class="inputBox">
                                 <span class="grandspan">Vous venez quel jour ?</span>
-                                <input type="text" placeholder="aaaa/mm/jj">
+                                <input type="date" name="dateReservation" required>
                             </div>
 
                             <div class="inputBox">
                                 <span class="grandspan">Vous arrivez à quelle heure ?</span>
-                                <input type="text" placeholder="hhHmm">
+                                <input type="time" name="heureReservation" min="11:00" max="21:00" required>
                             </div>
 
                             <div class="inputBox">
-                                <span class="grandspan">C'est le soir ou le midi ?</span>
-                                <select>
-                                    <option value="">Selectionnez une réponse</option>
+                                <span class="grandspan">Le soir ou le midi ?</span>
+                                <select name="serviceReservation" required>
+                                    <option value="null">Selectionnez une réponse</option>
                                     <option value="midi">Service du midi</option>
                                     <option value="soir">Service du soir</option>
                                 </select>
@@ -115,10 +115,11 @@
 
                             <div class="inputBox">
                                 <span class="grandspan">Vous serez combien ?</span>
-                                <input type="text">
+                                <input type="number" min="1" max="10" required>
                             </div>
 
                         </div>
+                        <input type="submit" value="Reserver">
                     </div>
                 </form>
 
@@ -127,231 +128,231 @@
 
             <div class="reserv plan">
 
-                    <table>
-                        <tr>
-                            <td>
-                                <div class="inputBox">
-                                    <input type="submit" value="Table 1">
-                                </div>
-                            </td>
+                <table>
+                    <tr>
+                        <td>
+                            <div class="inputBox">
+                                <input type="submit" value="Table 1">
+                            </div>
+                        </td>
 
-                            <td>
-                                <div class="inputBox">
-                                    <input type="submit" value="Table 2">
-                                </div>
-                            </td>
+                        <td>
+                            <div class="inputBox">
+                                <input type="submit" value="Table 2">
+                            </div>
+                        </td>
 
-                            <td>
-                                <div class="inputBox">
-                                    <input type="submit" value="Table 3">
-                                </div>
-                            </td>
+                        <td>
+                            <div class="inputBox">
+                                <input type="submit" value="Table 3">
+                            </div>
+                        </td>
 
-                            <td>
-                                <div class="inputBox">
-                                    <input type="submit" value="Table 4">
-                                </div>
-                            </td>
+                        <td>
+                            <div class="inputBox">
+                                <input type="submit" value="Table 4">
+                            </div>
+                        </td>
 
-                            <td>
-                                <div class="inputBox">
-                                    <input type="submit" value="Table 5">
-                                </div>
-                            </td>
-                        </tr>
+                        <td>
+                            <div class="inputBox">
+                                <input type="submit" value="Table 5">
+                            </div>
+                        </td>
+                    </tr>
 
-                        <tr>
-                            <td>
-                                <div class="inputBox">
-                                    <input type="submit" value="Table 6">
-                                </div>
-                            </td>
+                    <tr>
+                        <td>
+                            <div class="inputBox">
+                                <input type="submit" value="Table 6">
+                            </div>
+                        </td>
 
-                            <td>
-                                <div class="inputBox">
-                                    <input type="submit" value="Table 7">
-                                </div>
-                            </td>
+                        <td>
+                            <div class="inputBox">
+                                <input type="submit" value="Table 7">
+                            </div>
+                        </td>
 
-                            <td>
-                                <div class="inputBox">
-                                    <input type="submit" value="Table 8">
-                                </div>
-                            </td>
+                        <td>
+                            <div class="inputBox">
+                                <input type="submit" value="Table 8">
+                            </div>
+                        </td>
 
-                            <td>
-                                <div class="inputBox">
-                                    <input type="submit" value="Table 9">
-                                </div>
-                            </td>
+                        <td>
+                            <div class="inputBox">
+                                <input type="submit" value="Table 9">
+                            </div>
+                        </td>
 
-                            <td>
-                                <div class="inputBox">
-                                    <input type="submit" value="Table 10">
-                                </div>
-                            </td>
-                        </tr>
+                        <td>
+                            <div class="inputBox">
+                                <input type="submit" value="Table 10">
+                            </div>
+                        </td>
+                    </tr>
 
-                        <tr>
-                            <td>
-                                <div class="inputBox">
-                                    <input type="submit" value="Table 11">
-                                </div>
-                            </td>
+                    <tr>
+                        <td>
+                            <div class="inputBox">
+                                <input type="submit" value="Table 11">
+                            </div>
+                        </td>
 
-                            <td>
-                                <div class="inputBox">
-                                    <input type="submit" value="Table 12">
-                                </div>
-                            </td>
+                        <td>
+                            <div class="inputBox">
+                                <input type="submit" value="Table 12">
+                            </div>
+                        </td>
 
-                            <td>
-                                <div class="inputBox">
-                                    <input type="submit" value="Table 13">
-                                </div>
-                            </td>
+                        <td>
+                            <div class="inputBox">
+                                <input type="submit" value="Table 13">
+                            </div>
+                        </td>
 
-                            <td>
-                                <div class="inputBox">
-                                    <input type="submit" value="Table 14">
-                                </div>
-                            </td>
+                        <td>
+                            <div class="inputBox">
+                                <input type="submit" value="Table 14">
+                            </div>
+                        </td>
 
-                            <td>
-                                <div class="inputBox">
-                                    <input type="submit" value="Table 15">
-                                </div>
-                            </td>
-                        </tr>
+                        <td>
+                            <div class="inputBox">
+                                <input type="submit" value="Table 15">
+                            </div>
+                        </td>
+                    </tr>
 
-                        <tr>
-                            <td>
-                                <div class="inputBox">
-                                    <input type="submit" value="Table 16">
-                                </div>
-                            </td>
+                    <tr>
+                        <td>
+                            <div class="inputBox">
+                                <input type="submit" value="Table 16">
+                            </div>
+                        </td>
 
-                            <td>
-                                <div class="inputBox">
-                                    <input type="submit" value="Table 17">
-                                </div>
-                            </td>
+                        <td>
+                            <div class="inputBox">
+                                <input type="submit" value="Table 17">
+                            </div>
+                        </td>
 
-                            <td>
-                                <div class="inputBox">
-                                    <input type="submit" value="Table 18">
-                                </div>
-                            </td>
+                        <td>
+                            <div class="inputBox">
+                                <input type="submit" value="Table 18">
+                            </div>
+                        </td>
 
-                            <td>
-                                <div class="inputBox">
-                                    <input type="submit" value="Table 19">
-                                </div>
-                            </td>
+                        <td>
+                            <div class="inputBox">
+                                <input type="submit" value="Table 19">
+                            </div>
+                        </td>
 
-                            <td>
-                                <div class="inputBox">
-                                    <input type="submit" value="Table 20">
-                                </div>
-                            </td>
-                        </tr>
+                        <td>
+                            <div class="inputBox">
+                                <input type="submit" value="Table 20">
+                            </div>
+                        </td>
+                    </tr>
 
-                        <tr>
-                            <td>
-                                <div class="inputBox">
-                                    <input type="submit" value="Table 21">
-                                </div>
-                            </td>
+                    <tr>
+                        <td>
+                            <div class="inputBox">
+                                <input type="submit" value="Table 21">
+                            </div>
+                        </td>
 
-                            <td>
-                                <div class="inputBox">
-                                    <input type="submit" value="Table 22">
-                                </div>
-                            </td>
+                        <td>
+                            <div class="inputBox">
+                                <input type="submit" value="Table 22">
+                            </div>
+                        </td>
 
-                            <td>
-                                <div class="inputBox">
-                                    <input type="submit" value="Table 23">
-                                </div>
-                            </td>
+                        <td>
+                            <div class="inputBox">
+                                <input type="submit" value="Table 23">
+                            </div>
+                        </td>
 
-                            <td>
-                                <div class="inputBox">
-                                    <input type="submit" value="Table 24">
-                                </div>
-                            </td>
+                        <td>
+                            <div class="inputBox">
+                                <input type="submit" value="Table 24">
+                            </div>
+                        </td>
 
-                            <td>
-                                <div class="inputBox">
-                                    <input type="submit" value="Table 25">
-                                </div>
-                            </td>
-                        </tr>
+                        <td>
+                            <div class="inputBox">
+                                <input type="submit" value="Table 25">
+                            </div>
+                        </td>
+                    </tr>
 
-                                                <tr>
-                            <td>
-                                <div class="inputBox">
-                                    <input type="submit" value="Table 26">
-                                </div>
-                            </td>
+                    <tr>
+                        <td>
+                            <div class="inputBox">
+                                <input type="submit" value="Table 26">
+                            </div>
+                        </td>
 
-                            <td>
-                                <div class="inputBox">
-                                    <input type="submit" value="Table 27">
-                                </div>
-                            </td>
+                        <td>
+                            <div class="inputBox">
+                                <input type="submit" value="Table 27">
+                            </div>
+                        </td>
 
-                            <td>
-                                <div class="inputBox">
-                                    <input type="submit" value="Table 28">
-                                </div>
-                            </td>
+                        <td>
+                            <div class="inputBox">
+                                <input type="submit" value="Table 28">
+                            </div>
+                        </td>
 
-                            <td>
-                                <div class="inputBox">
-                                    <input type="submit" value="Table 29">
-                                </div>
-                            </td>
+                        <td>
+                            <div class="inputBox">
+                                <input type="submit" value="Table 29">
+                            </div>
+                        </td>
 
-                            <td>
-                                <div class="inputBox">
-                                    <input type="submit" value="Table 30">
-                                </div>
-                            </td>
-                        </tr>
+                        <td>
+                            <div class="inputBox">
+                                <input type="submit" value="Table 30">
+                            </div>
+                        </td>
+                    </tr>
 
-                        <tr>
-                            <td>
-                                <div class="inputBox">
-                                    <input type="submit" value="Table 31">
-                                </div>
-                            </td>
+                    <tr>
+                        <td>
+                            <div class="inputBox">
+                                <input type="submit" value="Table 31">
+                            </div>
+                        </td>
 
-                            <td>
-                                <div class="inputBox">
-                                    <input type="submit" value="Table 32">
-                                </div>
-                            </td>
+                        <td>
+                            <div class="inputBox">
+                                <input type="submit" value="Table 32">
+                            </div>
+                        </td>
 
-                            <td>
-                                <div class="inputBox">
-                                    <input type="submit" value="Table 33">
-                                </div>
-                            </td>
+                        <td>
+                            <div class="inputBox">
+                                <input type="submit" value="Table 33">
+                            </div>
+                        </td>
 
-                            <td>
-                                <div class="inputBox">
-                                    <input type="submit" value="Table 34">
-                                </div>
-                            </td>
+                        <td>
+                            <div class="inputBox">
+                                <input type="submit" value="Table 34">
+                            </div>
+                        </td>
 
-                            <td>
-                                <div class="inputBox">
-                                    <input type="submit" value="Table 35">
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
+                        <td>
+                            <div class="inputBox">
+                                <input type="submit" value="Table 35">
+                            </div>
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
 </body>

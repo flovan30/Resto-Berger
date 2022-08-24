@@ -131,17 +131,6 @@ CREATE TABLE `entree` (
   `photoEntree_Entree` varchar(255) CHARACTER SET utf8 DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
---
--- Déchargement des données de la table `entree`
---
-
-INSERT INTO `entree` (`numEntree_Entree`, `libelleEntree_Entree`, `prixEntree`, `photoEntree_Entree`) VALUES
-(38, 'Toast de chevre chaud', 3, '627e75b3ce0b82.53418886.jpg'),
-(39, 'Salade aux oeufs durs', 3, '627e75cac2cad0.31515561.PNG'),
-(40, 'Soupe au potiron chataigne au foie gras', 7, '627e75de9c7d41.55514952.PNG'),
-(41, 'Terrine de foie gras', 8, '627e75f0a2fe16.63558694.jpg'),
-(42, 'Verrine avocat saumon fumé', 5, '627e7614b6eb65.91353818.PNG');
-
 -- --------------------------------------------------------
 
 --
@@ -155,17 +144,6 @@ CREATE TABLE `plat` (
   `platdujour_Plat` tinyint(2) DEFAULT 0,
   `photo_plat` varchar(255) CHARACTER SET utf8 DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
---
--- Déchargement des données de la table `plat`
---
-
-INSERT INTO `plat` (`numPlat_Plat`, `libellePlat_Plat`, `prixPlat_Plat`, `platdujour_Plat`, `photo_plat`) VALUES
-(1, 'Spaghetti sauce tomate', 6, 0, '627e763145a120.49317912.jpg'),
-(2, 'Bruschetta', 6, 0, '627e76484cfda5.02693513.jpg'),
-(3, 'Filet mignon sauce a l\'ail et au romarin', 8, 0, '627e765b681603.41143531.jpg'),
-(4, 'Hachis parmentier', 6, 0, '627e766d5b74e1.73163905.jpg'),
-(5, 'Magrets de canard et légumes rotis', 8, 0, '627e76875088c9.63158569.jpg');
 
 -- --------------------------------------------------------
 

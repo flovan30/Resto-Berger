@@ -1,75 +1,70 @@
-@font-face {
-    font-family: 'heistregular';
-    src: url('/font/heist-regular-webfont.woff2');
-}
-
-html{
-    scroll-behavior: smooth;
-}
-
 body {
     margin: 0;
     padding: 0;
     overflow-x: hidden; 
+    background-image: url(../images/background-main-page.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size:cover ;
 }
 
-
-
 header{
     border-top: 5px solid #ff9d06;
     border-bottom: 5px solid #ff9d06;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     background-color:rgba(0, 0, 0, 0.8);
     background-size: cover;
     color: #fff;
     padding: 40px ;
 }
-
-header h1{
-    font-family: 'Kenia', cursive;
+.title_resto-berger{
+    text-align: center;
     font-size: 50px;
 }
-
-header h4{
-    margin-top: -20px;
-    font-family: 'Kenia', cursive;
+.subtitle_resto-berger{
     font-size: 20px;
     text-align: center;
-    border-bottom: 1px solid #fff;
+    border-bottom: 3px solid #fff;
 }
-
-.main{
-    margin-top: 40px;
-    font-family: 'Kenia', cursive;
+main{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.main .content .card{
+main .content .card{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-top: 30px;
     margin-bottom: 20px;
 }
-
-.main .content .card .left{
+p{
+    margin: 0px;
+}
+.left{
+    padding-left: 50px;
+    padding-right: 50px;
+    width: 600px;
+}
+.container_horraire_midi{
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+.container_horraire_soir{
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+main .content .card .left{
     flex: 0 0 30%;
-    padding: 20px;
     background-color: rgba(0, 0, 0, 0.8);
     color: #fff
 }
 
-.main .content .card.right{
+main .content .card.right{
     flex: 0 0 70%;
 }
 
-.main .content .card .right img{
+main .content .card .right img{
     height: 300px;
     width: 400px;
     margin-top: 5px;
@@ -85,14 +80,12 @@ footer{
 }
 
 footer h1{
-    font-family: 'Kenia', cursive;
     border-bottom: 1px solid #fff;
     width: 20%;
     padding-bottom: 5px;
 }
 
 footer .services{
-    font-family: 'Kenia', cursive;
     margin-top: -10px;
     display: flex;
     flex-wrap: wrap;
@@ -124,13 +117,14 @@ img{
 }
 .paiement{
     width: 100px;
-    height: 70px;
+    height: 100px;
 }
 
 .logo2{
     width: 100px;
-    height: 80px;
-    border-radius: 15px;
+    height: 100px;
+    border-radius: 20px;
+    margin: 6px;
 }
 
 .center {
@@ -142,15 +136,15 @@ img{
         margin-left: 0px;
         margin-bottom: 20px;
     }
-    .main .card{
+    main .card{
         margin: 10px;
     }
-    .main .content .card .right img{
+    main .content .card .right img{
         height: 200px;
         width: 100px;
         margin-top: 0px;
     }
-    .main .content .card{
+    main .content .card{
         display: block;
     }
     footer {

@@ -34,10 +34,6 @@ header p {
 	font-size: 25px;
 }
 
-header h1, p, li {
-	font-family: 'Martel', serif;
-}
-
 
 /* Slider */
 
@@ -97,7 +93,7 @@ nav.menu ul li {
 	list-style-type: none;
 	display: flex;
 	align-items: center;
-	justify-content: center;5
+	justify-content: center;
 	transition: 0.3s all;
 }
 
