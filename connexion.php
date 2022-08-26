@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="style/style_connexion.css" />
     <link rel="stylesheet" type="text/css" href="style/style_nav.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Gastro-Berger-restaurant</title>
 </head>
 
@@ -21,7 +22,7 @@
 
             <!-- Lien vers l'accueil -->
             <li>
-                <a href="index.html">
+                <a href="index.php">
                     <div class="icon">
                         <i class="fas fa-home" aria-hidden="true"></i>
                         <i class="fas fa-home" aria-hidden="true"></i>
@@ -32,7 +33,7 @@
 
             <!-- Lien vers le menu -->
             <li>
-                <a href="menu.html">
+                <a href="menu.php">
                     <div class="icon">
                         <i class="fas fa-utensils"></i>
                         <i class="fas fa-utensils"></i>
@@ -43,7 +44,7 @@
 
             <!-- Lien vers la reservation -->
             <li>
-                <a href="reservation.html">
+                <a href="reservation.php">
                     <div class="icon">
                         <i class="fas fa-concierge-bell"></i>
                         <i class="fas fa-concierge-bell"></i>
@@ -54,7 +55,7 @@
 
             <!-- Lien vers la page de contact -->
             <li>
-                <a href="contact.html">
+                <a href="contact.php">
                     <div class="icon">
                         <i class="fas fa-id-card"></i>
                         <i class="fas fa-id-card"></i>
@@ -65,7 +66,7 @@
 
             <!-- Lien vers la connexion -->
             <li>
-                <a href="connexion.html">
+                <a href="connexion.php">
                     <div class="icon">
                         <i class='fas fa-key'></i>
                         <i class='fas fa-key'></i>
@@ -97,32 +98,34 @@
 
                             <div class="inputBox">
                                 <span>Votre prénom : </span>
-                                <input type="text" name="prenomClient" placeholder="John">
+                                <input type="text" name="prenomClient" placeholder="John" maxlength="30" required>
                             </div>
 
                             <div class="inputBox">
                                 <span>Votre nom : </span>
-                                <input type="text" name="nomClient" placeholder="Doe">
+                                <input type="text" name="nomClient" placeholder="Doe" maxlength="20" required>
                             </div>
 
                             <div class="inputBox">
                                 <span>Votre e-mail : </span>
-                                <input type="text" name="mailClient" placeholder="johndoe@email.com">
+                                <input type="text" name="mailClient" placeholder="johndoe@email.com" maxlength="90"
+                                    required>
                             </div>
 
                             <div class="inputBox">
                                 <span>Votre numéro de téléphone : </span>
-                                <input type="tel" name="telClient" placeholder="0* ** ** ** **">
+                                <input type="tel" name="telClient" placeholder="0* ** ** ** **" maxlength="10" required>
                             </div>
 
                             <div class="inputBox">
                                 <span>Votre mot de passe : </span>
-                                <input type="password" name="mdpClient" placeholder="********">
+                                <input type="password" name="mdpClient" placeholder="********" maxlength="30" required>
                             </div>
 
                             <div class="inputBox">
                                 <span>Confirmez votre mot de passe : </span>
-                                <input type="password" name="confirme_mdpClient" placeholder="********">
+                                <input type="password" name="confirme_mdpClient" placeholder="********" maxlength="30"
+                                    required>
                             </div>
                         </div>
 

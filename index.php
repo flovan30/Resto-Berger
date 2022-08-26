@@ -24,7 +24,7 @@
 
         <!-- Lien vers l'accueil -->
         <li>
-            <a href="index.html">
+            <a href="index.php">
                 <div class="icon">
                     <i class="fas fa-home" aria-hidden="true"></i>
                     <i class="fas fa-home" aria-hidden="true"></i>
@@ -35,7 +35,7 @@
 
         <!-- Lien vers le menu -->
         <li>
-            <a href="menu.html">
+            <a href="menu.php">
                 <div class="icon">
                     <i class="fas fa-utensils"></i>
                     <i class="fas fa-utensils"></i>
@@ -46,7 +46,7 @@
 
         <!-- Lien vers la reservation -->
         <li>
-            <a href="reservation.html">
+            <a href="reservation.php">
                 <div class="icon">
                     <i class="fas fa-concierge-bell"></i>
                     <i class="fas fa-concierge-bell"></i>
@@ -57,7 +57,7 @@
 
         <!-- Lien vers la page de contact -->
         <li>
-            <a href="Contact.html">
+            <a href="Contact.php">
                 <div class="icon">
                     <i class="fas fa-id-card"></i>
                     <i class="fas fa-id-card"></i>
@@ -68,12 +68,21 @@
 
         <!-- Lien vers la connexion -->
         <li>
-            <a href="connexion.html">
+            <a href="connexion.php">
                 <div class="icon">
                     <i class='fas fa-key'></i>
                     <i class='fas fa-key'></i>
                 </div>
                 <div class="name"><span data-text="Connexion">Connexion</span></div>
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <div class="icon">
+                    <i class="fas fa-user"></i>
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="name"><span data-text="Profile">Profile</span></div>
             </a>
         </li>
     </ul>
@@ -115,7 +124,6 @@
                         <p class="horraire_soir"><i class="fa-solid fa-angle-right"></i> Mardi 18:00 - 21:00</p>
                         <p class="horraire_soir"><i class="fa-solid fa-angle-right"></i> Mercredi 18:00 - 21:00</p>
                         <p class="horraire_soir"><i class="fa-solid fa-angle-right"></i> Jeudi 18:00 - 21:00</p>
-                        <p class="horraire_soir"><i class="fa-solid fa-angle-right"></i> Vendredi 18:00 - 21:00</p>
                     </div>
                 </div>
 

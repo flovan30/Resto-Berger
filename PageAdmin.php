@@ -19,7 +19,7 @@
                 <img src="images/gaston_berger.png" class="logo">
             </li>
             <li>
-                <a href="index.html">
+                <a href="index.php">
                     <div class="icon">
                         <i class="fas fa-home" aria-hidden="true"></i>
                         <i class="fas fa-home" aria-hidden="true"></i>
@@ -28,7 +28,7 @@
                 </a>
             </li>
             <li>
-                <a href="menu.html">
+                <a href="menu.php">
                     <div class="icon">
                         <i class="fas fa-utensils"></i>
                         <i class="fas fa-utensils"></i>
@@ -37,7 +37,7 @@
                 </a>
             </li>
             <li>
-                <a href="reservation.html">
+                <a href="reservation.php">
                     <div class="icon">
                         <i class="fas fa-concierge-bell"></i>
                         <i class="fas fa-concierge-bell"></i>
@@ -46,7 +46,7 @@
                 </a>
             </li>
             <li>
-                <a href="contact.html">
+                <a href="contact.php">
                     <div class="icon">
                         <i class="fas fa-id-card"></i>
                         <i class="fas fa-id-card"></i>
