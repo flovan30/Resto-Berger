@@ -1,3 +1,4 @@
+<?php session_start()?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -21,7 +22,7 @@
         <ul>
             <!-- Logo -->
             <li>
-                <img src="images/gaston_berger.png" class="logo">
+                <img src="images/gaston_berger.png" class="logo" alt="logo resto-berger">
             </li>
 
             <!-- Lien vers l'accueil -->
@@ -68,7 +69,38 @@
                 </a>
             </li>
 
-            <!-- Lien vers la connexion -->
+            <?php
+    if(!empty($_SESSION['username']) && $_SESSION['admin?'] == 1){
+?>
+            <!-- Lien vers le profil si utilisateur connecté admin-->
+            <li>
+                <a href="PageAdmin.php">
+                    <div class="icon">
+                        <i class="fas fa-gear"></i>
+                        <i class="fas fa-gear"></i>
+                    </div>
+                    <div class="name"><span data-text="ADMIN">ADMIN</span></div>
+                </a>
+            </li>
+            <?php
+    }
+    else if(!empty($_SESSION['username']) && $_SESSION['admin?'] == 0){
+        ?>
+            <!-- Lien vers le profil si utilisateur connecté non-admin-->
+            <li>
+                <a href="profile.php">
+                    <div class="icon">
+                        <i class="fas fa-user"></i>
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="name"><span data-text="Profile">Mon_Profile</span></div>
+                </a>
+            </li>
+            <?php
+    }
+    else{
+?>
+            <!-- Lien vers la connexion si utilisateur pas connecté-->
             <li>
                 <a href="connexion.php">
                     <div class="icon">
@@ -78,8 +110,13 @@
                     <div class="name"><span data-text="Connexion">Connexion</span></div>
                 </a>
             </li>
+            <?php
+    }
+?>
+
+
         </ul>
-        <br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br>
     </div>
 
     <div class="contactUS">

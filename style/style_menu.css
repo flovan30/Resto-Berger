@@ -103,6 +103,8 @@ nav.menu ul li:hover {
 }
 
 nav.menu ul li a {
+	border: #fff 2px solid;
+	background-color: rgba(255, 255, 255, 0.6);
 	color: black;
 	text-decoration: none;
 	font-size: 50px;
@@ -114,7 +116,7 @@ nav.menu ul li a {
 }
 
 .entrees {
-	background: url(../images/entree-banner.PNG) 100%;
+	background: url(../images/entree-banner.PNG) 90%;
 	background-repeat: no-repeat;
 	background-size: cover;
 }
@@ -194,7 +196,7 @@ section {
 
 .prix {
 	font-weight: bold;
-	font-size: 20px;
+	font-size: 25px;
 }
 
 section img {

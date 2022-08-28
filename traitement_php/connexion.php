@@ -1,4 +1,7 @@
 <?php
+
+    session_start();
+
     // si le formulaire est envoye 
     if(isset($_POST['mail']) && isset($_POST['motdepasse'])){
         // preparation a la connexion à la base de données 
@@ -15,16 +18,27 @@
 
         
         if(!empty($mail) && !empty($motdepasse)){
-            $requete = ("SELECT prenomClient FROM clients WHERE mailClient = '$mail' AND mdpClient = '$motdepassehash'");
+            $requete = ("SELECT idClient,prenomClient,nomClient,admin,nbReservations FROM clients WHERE mailClient = '$mail' AND mdpClient = '$motdepassehash'");
             $result = mysqli_query($base,$requete);
             $rows = mysqli_num_rows($result);
-            
-            while($row = mysqli_fetch_assoc($result)){
-            $prenom = $row['prenomClient'];
-            }
-            
+    
+            // si le compte existe
             if($rows===1){
-                echo '<body onLoad="alert(\'Vous êtes connecté, Bienvenue ' . $prenom . ' \n Vous aller être redirigé vers la page Accueil\')">';
+                while($row = mysqli_fetch_assoc($result)){
+                    $idclient = $row['idClient'];
+                    $prenomClient = $row['prenomClient'];
+                    $nomClient = $row['nomClient'];
+                    $admin = $row['admin'];
+                    $nbReservation = $row['nbReservations'];
+                }
+                
+                $_SESSION['userconnect'] = TRUE;
+                $_SESSION['idClient'] = $idclient;
+                $_SESSION['username'] = $prenomClient;
+                $_SESSION['nomClient'] = $nomClient;
+                $_SESSION['admin?'] = $admin;
+                $_SESSION['nbReservation'] = $nbReservation;
+                echo '<body onLoad="alert(\'Vous êtes connecté, Bienvenue ' . $prenomClient . ' \n Vous aller être redirigé vers la page Accueil\')">';
                 echo '<meta http-equiv="refresh" content="0;URL=../index.php">';
             }
 

@@ -77,7 +77,7 @@ if($base){
         $requete = 'INSERT INTO clients (prenomClient,nomClient ,mailClient,telClient,mdpClient) VALUES ("'. $prenomClient .'","'. $nomClient .'","'. $mailClient .'","'. $telClient .'","'. $mdpClient .'")';
         mysqli_query($base, $requete);
         echo '<body onLoad="alert(\'Vous venez de vous enregistrer \')">';
-        echo '<meta http-equiv="refresh" content="0;URL=../connexion.html">';
+        echo '<meta http-equiv="refresh" content="0;URL=../index.php">';
     }
 }
 

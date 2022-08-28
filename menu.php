@@ -1,3 +1,4 @@
+<?php session_start()?>
 <!DOCTYPE html>
 <html>
 
@@ -21,7 +22,7 @@
         <ul>
             <!-- Logo -->
             <li>
-                <img src="images/gaston_berger.png" class="logo">
+                <img src="images/gaston_berger.png" class="logo" alt="logo resto-berger">
             </li>
 
             <!-- Lien vers l'accueil -->
@@ -68,7 +69,38 @@
                 </a>
             </li>
 
-            <!-- Lien vers la connexion -->
+            <?php
+    if(!empty($_SESSION['username']) && $_SESSION['admin?'] == 1){
+?>
+            <!-- Lien vers le profil si utilisateur connecté admin-->
+            <li>
+                <a href="PageAdmin.php">
+                    <div class="icon">
+                        <i class="fas fa-gear"></i>
+                        <i class="fas fa-gear"></i>
+                    </div>
+                    <div class="name"><span data-text="ADMIN">ADMIN</span></div>
+                </a>
+            </li>
+            <?php
+    }
+    else if(!empty($_SESSION['username']) && $_SESSION['admin?'] == 0){
+        ?>
+            <!-- Lien vers le profil si utilisateur connecté non-admin-->
+            <li>
+                <a href="profile.php">
+                    <div class="icon">
+                        <i class="fas fa-user"></i>
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="name"><span data-text="Profile">Mon_Profile</span></div>
+                </a>
+            </li>
+            <?php
+    }
+    else{
+?>
+            <!-- Lien vers la connexion si utilisateur pas connecté-->
             <li>
                 <a href="connexion.php">
                     <div class="icon">
@@ -78,8 +110,12 @@
                     <div class="name"><span data-text="Connexion">Connexion</span></div>
                 </a>
             </li>
+            <?php
+    }
+?>
+
         </ul>
-        <br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br>
     </div>
 
     <!-- En-tête -->
@@ -115,167 +151,27 @@
         </nav>
     </div>
 
-    <!-- sections -->
-
-    <hr size="30">
-
-    <!-- section menus -->
-
-    <section id="menus" class="menus">
-
-        <div class="item">
-
-            <img src="images/test.jpg">
-
-            <div class="item-infos">
-                <h3>Menu enfant</h3>
-                <hr>
-                <p>description
-                <p>
-                <p class="prix">prix</p>
-            </div>
-
-        </div>
-        <div class="item">
-
-            <img src="images/test.jpg">
-
-            <div class="item-infos">
-                <h3>Menu étudiant</h3>
-                <hr>
-                <p>description
-                <p>
-                <p class="prix">prix</p>
-            </div>
-
-        </div>
-        <div class="item">
-
-            <img src="images/test.jpg">
-
-            <div class="item-infos">
-                <h3>Menu classique</h3>
-                <hr>
-                <p>description
-                <p>
-                <p class="prix">prix</p>
-            </div>
-
-        </div>
-        <div class="item">
-
-            <img src="images/test.jpg">
-
-            <div class="item-infos">
-                <h3>Menu goûter</h3>
-                <hr>
-                <p>description
-                <p>
-                <p class="prix">prix</p>
-            </div>
-        </div>
-
-    </section>
-
-
-    <!-- sections -->
-
     <hr size="30">
 
     <!-- section entrées -->
 
     <section id="entrees" class="entrees">
 
-        <div class="item">
+        <?php
+        $link = 'localhost';
+        $user = 'root';
+        $mdp = '';
+        $bdd = 'test_bdd_resto_berger';
+        $base = mysqli_connect($link, $user, $mdp, $bdd);
 
-            <img src="images/test.jpg">
-
-            <div class="item-infos">
-                <h3>Entrée 1</h3>
-                <hr>
-                <p>description
-                <p>
-                <p class="prix">prix</p>
-            </div>
-
-        </div>
-        <div class="item">
-
-            <img src="images/test.jpg">
-
-            <div class="item-infos">
-                <h3>Entrée 2</h3>
-                <hr>
-                <p>description
-                <p>
-                <p class="prix">prix</p>
-            </div>
-
-        </div>
-        <div class="item">
-
-            <img src="images/test.jpg">
-
-            <div class="item-infos">
-                <h3>Entrée 3</h3>
-                <hr>
-                <p>description
-                <p>
-                <p class="prix">prix</p>
-            </div>
-
-        </div>
-        <div class="item">
-
-            <img src="images/test.jpg">
-
-            <div class="item-infos">
-                <h3>Entrée 4</h3>
-                <hr>
-                <p>description
-                <p>
-                <p class="prix">prix</p>
-            </div>
-
-        </div>
-        <div class="item">
-
-            <img src="images/test.jpg">
-
-            <div class="item-infos">
-                <h3>Entrée 5</h3>
-                <hr>
-                <p>description
-                <p>
-                <p class="prix">prix</p>
-            </div>
-
-        </div>
-        <div class="item">
-
-            <img src="images/test.jpg">
-
-            <div class="item-infos">
-                <h3>Entrée 6</h3>
-                <hr>
-                <p>description
-                <p>
-                <p class="prix">prix</p>
-            </div>
-
-        </div>
-        <div class="item">
-
-            <img src="images/test.jpg">
-
-            <div class="item-infos">
-                <h3>Entrée 7</h3>
-                <p>description
-                <p>
-                <p class="prix">prix</p>
-            </div>
-
-        </div>
+        if($base){
+            // affichage de toutes les entrée dans la base de données
+            $nb_entree = mysqli_query($base, 'SELECT * FROM entree');
+            while($ligne = mysqli_fetch_row($nb_entree)){
+                echo "<div class="."item"."><img src=".$ligne['3']."> <div class="."item-infos"."><h3>".$ligne['1']."</h3><hr><p class="."prix".">".$ligne['2']." €"."</p></div></div><BR>";
+            }
+        }
+    ?>
 
     </section>
 

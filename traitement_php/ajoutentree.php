@@ -3,14 +3,14 @@
 $link = 'localhost';
 $user = 'root';
 $mdp = '';
-$bdd = 'resto-berger';
+$bdd = 'test_bdd_resto_berger';
 
 $base = mysqli_connect($link, $user, $mdp, $bdd);
 if ($base) {
     //on "exporte" le nom est on le met dans la variable nomentree
-    $nomentree = ($_POST['nomEntree']);
+    $nomEntree = ($_POST['nomEntree']);
     //on "exporte" le rpix est on le met dans la variable prixentree
-    $prixentree = ($_POST['prixentree']);
+    $prixEntree = ($_POST['prixentree']);
 
     //  ci-dessous on declare les variables concernant le fichier uploadé 
     if (isset($_FILES['imageEntree'])) {
@@ -30,9 +30,13 @@ if ($base) {
 
             //on deplace ensuite l'image dans le dossier uploaded_image à la racine du site  uniquement si l'extention est bonne 
             move_uploaded_file($tmpname,$local_image.$file);
+            // adresse ou se trouve l'image 
+            $adresse_image_entree = $local_image.$file;
 
+            //on retire les caractère au debut pour recupèrer la photo
+            $newAdresse_image_entree = substr($adresse_image_entree, 3);
             //on entre ensuite le nom de l'image dans la base de donnée 
-            $requete = 'INSERT INTO entree (libelleEntree_Entree,prixEntree,photoEntree_Entree) VALUES ("'. $nomentree . '","'. $prixentree . '","'. $file . '")';
+            $requete = 'INSERT INTO entree (libelleEntree,prixEntree,adressePhotoEntree) VALUES ("'. $nomEntree . '","'. $prixEntree . '","'. $newAdresse_image_entree . '")';
             mysqli_query($base, $requete);
             echo '<body onLoad="alert(\'Entrée enregistré\')">';
             echo '<meta http-equiv="refresh" content="0;URL=../PageAdmin.php">';

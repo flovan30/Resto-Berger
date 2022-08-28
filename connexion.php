@@ -150,12 +150,12 @@
 
                             <div class="inputBox">
                                 <span>Votre mail : </span>
-                                <input type="text" name="mail" placeholder="JDOE">
+                                <input type="text" name="mail" placeholder="JDOE" maxlength="90" require>
                             </div>
 
                             <div class="inputBox">
                                 <span>Votre mot de passe : </span>
-                                <input type="password" name="motdepasse" placeholder="********">
+                                <input type="password" name="motdepasse" placeholder="********" maxlength="30" require>
                             </div>
 
                         </div>
