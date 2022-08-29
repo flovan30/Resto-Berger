@@ -116,15 +116,29 @@ nav.menu ul li a {
 }
 
 .entrees {
-	background: url(../images/entree-banner.PNG) 90%;
+	background: url(../images/entree-banner.PNG) 100%;
 	background-repeat: no-repeat;
 	background-size: cover;
 }
+.entrees_section{
+	background: rgb(244,223,161);
+	background: radial-gradient(circle, rgba(244,223,161,1) 0%, rgba(246,233,191,1) 50%, rgba(251,243,218,0.9) 100%);
+}
+
 
 .plats {
 	background: url(../images/plats-banner.PNG) 100%;
 	background-repeat: no-repeat;
 	background-size: cover;
+}
+
+.plat_section{
+	background: rgb(244,223,161);
+	background: radial-gradient(circle, rgba(244,223,161,1) 0%, rgba(246,233,191,1) 50%, rgba(251,243,218,0.9) 100%);
+}
+.platdujour{
+	text-decoration: underline;
+	font-weight: bold;
 }
 
 .desserts {
@@ -133,10 +147,20 @@ nav.menu ul li a {
 	background-size: cover;
 }
 
+.dessert_section{
+	background: rgb(244,223,161);
+	background: radial-gradient(circle, rgba(244,223,161,1) 0%, rgba(246,233,191,1) 50%, rgba(251,243,218,0.9) 100%);
+}
+
 .boissons {
 	background: url(../images/bois.jpeg) 100%;
 	background-repeat: no-repeat;
 	background-size: cover;
+}
+
+.boisson_section{
+	background: rgb(244,223,161);
+	background: radial-gradient(circle, rgba(244,223,161,1) 0%, rgba(246,233,191,1) 50%, rgba(251,243,218,0.9) 100%);
 }
 
 .menus {
@@ -153,16 +177,19 @@ hr {
 }
 
 .item {
+	display: flex;
+	margin-left: auto;
+	margin-right: auto;
 	background-color: white;
 	opacity: 0.8;
-	margin: 20px;
-	display: flex;
+	align-items: center;
+	width: 800px;
 	cursor: pointer;}
 
 
 .item:hover {
 	transition: 1s all;
-	box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
+	box-shadow: 12px 12px 2px 1px rgba(27, 27, 28, 0.2);
 }
 
 .item:hover {
@@ -172,7 +199,7 @@ hr {
 
 .item-infos {
 	padding: 20px;
-	line-height: 26px;
+	line-height: 40px;
 }
 
 section {
@@ -200,5 +227,6 @@ section {
 }
 
 section img {
-	height: 180px;
+	height: 240px;
+	width: 352px;
 }

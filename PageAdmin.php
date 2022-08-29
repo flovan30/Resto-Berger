@@ -5,6 +5,7 @@
 <head>
     <meta charset="uts-8">
     <link rel="stylesheet" type="text/css" href="style/style_nav.css" />
+    <link rel="stylesheet" type="text/css" href="style/style_pageadmin.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
         integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -110,27 +111,22 @@
             <?php
     }
 ?>
-
-
         </ul>
         <br><br><br><br><br><br><br><br><br><br>
     </div>
     <!--Fin de la NavBar-->
 
+    <h2 class="title">Page d'administration</h2>
+    <a class="log-out" href="traitement_php/deconnexion.php">se deconnecter</a>
+    <!--_______________________________________________ce qui concerne les entrées____________________________________________________________________________________-->
+    <hr>
+    <h2 class="title_section">Les entrées</h2>
+    <div class="box">
+        <div class="list">
+            <h3 class="title_list">Liste des entrées</h3>
 
-    <div class="contactUS">
-
-        <div class="title">
-            <h2>Page d'administration</h2>
-        </div>
-        <a href="traitement_php/deconnexion.php">se deconnecter</a>
-        <!--_______________________________________________ce qui concerne les entrées____________________________________________________________________________________-->
-
-        <div class="box">
-            <div class="contact from">
-                <h3>liste des entrées</h3>
-
-                <!-- liste qui contient toutes les entrees -->
+            <!-- liste qui contient toutes les entrees -->
+            <div class="tableau">
                 <?php
         $link = 'localhost';
         $user = 'root';
@@ -141,37 +137,119 @@
         if ($base){
             $nb_entree = mysqli_query($base, 'SELECT * FROM entree');
             echo"<table>";
-            echo"<tr><th>id entrée</th><th>Désignation entrée</th><th>Prix entrée</th></tr>";
+            echo"<thead><tr><th>Id entrée</th><th>Désignation entrée</th><th>Prix entrée</th></tr></thead><tbody>";
             while($ligne = mysqli_fetch_row($nb_entree)){
-                echo "<tr> <td>".$ligne['0']."</td> <td>".$ligne['1']."</td> <td>".$ligne['2']. "</td> </tr>";
+                echo "<tr> <td>".$ligne['0']."</td> <td>".$ligne['1']."</td> <td>".$ligne['2']." €"."</td> </tr>";
             }
-            echo"</table><BR>";
+            echo"</tbody></table></div><BR>";
+        }
+    ?>
+            </div>
+            <div class="add">
+                <!-- formulaire d'ajout d'entrée  -->
+                <h3 class="title_add">Ajout d'une entree</h3>
+                <form class="form_add" enctype="multipart/form-data" action="traitement_php/ajoutentree.php"
+                    method="post">
+                    <label for="nomEntree">Nom de l'entree :</label><br>
+                    <input type="text" name="nomEntree" id="nomEntree" required><br><br>
+                    <label for="prixentree">Veuillez saisir le prix de l'entree</label><br>
+                    <input type="number" step="0.01" name="prixentree" id="prixentree" required><br>
+                    <label for="imageEntree"><br> Veuillez choisir une image pour l'entrée</label><br>
+                    <input type="file" name="imageEntree" id="imageEntree" required>
+                    <input type="hidden" name="MAX_FILE_SIZE" value="10000000"><br><br>
+                    <input type="submit" value="Ajouter à la base de donnée" />
+                </form><br>
+            </div>
+
+            <div class="supp">
+                <h3>Suppression d'une entrée</h3>
+                <form action="traitement_php/suppressionEntreeBDD.php" method="POST">
+                    <label for="idEntree">Identifiant de l'entrée</label><br>
+                    <input type="number" name="idEntree" id="idEntree"><br><br>
+                    <input type="submit" value="Supprimer de la base de données">
+                </form>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <h2 class="title_section">Les plats</h2>
+    <div class="box">
+        <div class="list">
+            <h3 class="title_list">Liste des plats</h3>
+
+            <!-- liste qui contient tout les plats -->
+            <div class="tableau">
+                <?php
+        $link = 'localhost';
+        $user = 'root';
+        $mdp = '';
+        $bdd = 'test_bdd_resto_berger';
+        $base = mysqli_connect($link, $user, $mdp, $bdd);
+
+        if ($base){
+            $nb_entree = mysqli_query($base, 'SELECT * FROM plat');
+            echo"<table>";
+            echo"<thead><tr><th>Id plat</th><th>Désignation plat</th><th>Prix plat</th><th>Plat du jour ?</th></tr></thead><tbody>";
+            while($ligne = mysqli_fetch_row($nb_entree)){
+                // verification si c'est en plat du jour 
+                if($ligne['4'] == 0){
+                    $platdujour = "non";
+                }
+                else{
+                    $platdujour = "oui";
+                }
+                echo "<tr> <td>".$ligne['0']."</td> <td>".$ligne['1']."</td> <td>".$ligne['2']." €"."</td><td>".$platdujour."</td></tr>";
+            }
+            echo"</tbody></table></div><BR>";
         }
     ?>
 
-                <!-- formulaire d'ajout d'entrée  -->
-                <h3>Ajout d'une entree à la base de donnée</h3>
-                <form enctype="multipart/form-data" action="traitement_php/ajoutentree.php" method="post">
-                    <input type="text" name="nomEntree" id="nomEntree" required>
-                    <label for="nomEntree">Nom de l'entree</label><br><br>
-                    <input type="number" step="0.01" name="prixentree" id="prixentree" required>
-                    <label for="prixentree">Veuillez saisir le prix de l'entree</label><br><br>
-                    <input type="file" name="imageEntree" id="imageEntree" required>
-                    <input type="hidden" name="MAX_FILE_SIZE" value="10000000">
-                    <label for="imageEntree"><br> Veuillez choisir une image pour votre entree</label><br>
+            </div>
+            <div class="add">
+                <!-- formulaire d'ajout de plat  -->
+                <h3 class="title_add">Ajout d'un plat</h3>
+                <form class="form_add" enctype="multipart/form-data" action="traitement_php/ajoutplat.php"
+                    method="post">
+                    <label for="nomPlat">Nom du plat :</label><br>
+                    <input type="text" name="nomPlat" id="nomPlat" required><br><br>
+                    <label for="prixplat">Veuillez saisir le prix du plat</label><br>
+                    <input type="number" step="0.01" name="prixplat" id="prixplat" required><br>
+                    <label for="imagePlat"><br> Veuillez choisir une image pour le plat</label><br>
+                    <input type="file" name="imagePlat" id="imagePlat" required>
+                    <input type="hidden" name="MAX_FILE_SIZE" value="10000000"><br><br>
                     <input type="submit" value="Ajouter à la base de donnée" />
                 </form><br>
+            </div>
 
-
-                <h3>Suppression d'une entrée à la base de données</h3>
-                <form action="traitement_php/suppressionEntreeBDD.php" method="POST">
-                    <input type="number" name="idEntree" id="idEntree"><br>
-                    <label for="idEntree">Veuilez saisir l'identifiant de l'entrée à supprimer dans la base de
-                        données</label><br>
+            <div class="supp">
+                <h3>Suppression d'un plat</h3>
+                <form action="traitement_php/suppressionPlatBDD.php" method="POST">
+                    <label for="idPlat">Identifiant du plat</label><br>
+                    <input type="number" name="idPlat" id="idPlat"><br><br>
                     <input type="submit" value="Supprimer de la base de données">
-                    <input type="reset" value="Effacer">
                 </form>
+            </div>
 
+        </div>
+    </div>
+    <div class="platdujour">
+        <div class="ajout_platdujour">
+            <h3>Ajout d'un plat du jour </h3>
+            <form class="form_add_platdujour" action="traitement_php/add_platdujour.php" method="POST">
+                <label for="idPlat">ID du plat à ajouter en plat du jour</label><br>
+                <input type="number" name="idPlat" id="idPlat"><br><br>
+                <input type="submit" value="Ajouter">
+            </form>
+        </div>
+        <div class="supp_platdujour">
+            <h3>Suppression d'un plat du jour</h3>
+            <form class="form_supp_platdujour" action="traitement_php/supp_platdujour.php" method="POST">
+                <label for="idPlat">ID du plat à supprimer des plats du jour</label><br>
+                <input type="number" name="idPlat" id="idPlat"><br><br>
+                <input type="submit" value="Supprimer">
+            </form>
+        </div>
+    </div>
 </body>
 
 </html>

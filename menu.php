@@ -155,7 +155,7 @@
 
     <!-- section entrées -->
 
-    <section id="entrees" class="entrees">
+    <section id="entrees" class="entrees_section">
 
         <?php
         $link = 'localhost';
@@ -168,7 +168,7 @@
             // affichage de toutes les entrée dans la base de données
             $nb_entree = mysqli_query($base, 'SELECT * FROM entree');
             while($ligne = mysqli_fetch_row($nb_entree)){
-                echo "<div class="."item"."><img src=".$ligne['3']."> <div class="."item-infos"."><h3>".$ligne['1']."</h3><hr><p class="."prix".">".$ligne['2']." €"."</p></div></div><BR>";
+                echo "<div class="."item"."><img src=".$ligne['3']."> <div class="."item-infos"."><h3>".ucfirst($ligne['1'])."</h3><hr><p class="."prix".">".$ligne['2']." €"."</p></div></div><BR>";
             }
         }
     ?>
@@ -180,103 +180,32 @@
 
     <hr size="30">
 
-    <section id="plats" class="plats">
+    <section id="plats" class="plat_section">
 
-        <div class="item">
+        <?php
+        $link = 'localhost';
+        $user = 'root';
+        $mdp = '';
+        $bdd = 'test_bdd_resto_berger';
+        $base = mysqli_connect($link, $user, $mdp, $bdd);
 
-            <img src="images/test.jpg">
-
-            <div class="item-infos">
-                <h3>Plat 1</h3>
-                <hr>
-                <p class="dujour">Plat du jour !</p>
-                <p>description
-                <p>
-                <p class="prix">prix</p>
-            </div>
-
-        </div>
-        <div class="item">
-
-            <img src="images/test.jpg">
-
-            <div class="item-infos">
-                <h3>Plat 2</h3>
-                <hr>
-                <p class="dujour">Plat du jour !</p>
-                <p>description
-                <p>
-                <p class="prix">prix</p>
-            </div>
-
-        </div>
-        <div class="item">
-
-            <img src="images/test.jpg">
-
-            <div class="item-infos">
-                <h3>Plat 3</h3>
-                <hr>
-                <p class="dujour">Plat du jour !</p>
-                <p>description
-                <p>
-                <p class="prix">prix</p>
-            </div>
-
-        </div>
-        <div class="item">
-
-            <img src="images/test.jpg">
-
-            <div class="item-infos">
-                <h3>Plat 4</h3>
-                <hr>
-                <p class="dujour">Plat du jour !</p>
-                <p>description
-                <p>
-                <p class="prix">prix</p>
-            </div>
-
-        </div>
-        <div class="item">
-
-            <img src="images/test.jpg">
-
-            <div class="item-infos">
-                <h3>Plat 5</h3>
-                <hr>
-                <p class="dujour">Plat du jour !</p>
-                <p>description
-                <p>
-                <p class="prix">prix</p>
-            </div>
-
-        </div>
-        <div class="item">
-
-            <img src="images/test.jpg">
-
-            <div class="item-infos">
-                <h3>Plat 6</h3>
-                <hr>
-                <p>description
-                <p>
-                <p class="prix">prix</p>
-            </div>
-
-        </div>
-        <div class="item">
-
-            <img src="images/test.jpg">
-
-            <div class="item-infos">
-                <h3>Plat 7</h3>
-                <p>description
-                <p>
-                <p class="prix">prix</p>
-            </div>
-
-        </div>
+        // les plats du jour
+        if($base){
+            // affichage de toutes les entrée dans la base de données
+            $nb_entree = mysqli_query($base, 'SELECT * FROM plat WHERE platdujour = 1');
+            while($ligne = mysqli_fetch_row($nb_entree)){
+                echo "<div class="."item"."><img src=".$ligne['3']."> <div class="."item-infos"."><h3>".ucfirst($ligne['1'])."</h3><hr><h2 class="."platdujour".">Plat du jour</h2><p class="."prix".">".$ligne['2']." €"."</p></div></div><BR>";
+            }
+        }
+        // les plats de la carte
+        if($base){
+            // affichage de toutes les entrée dans la base de données
+            $nb_entree = mysqli_query($base, 'SELECT * FROM plat WHERE platdujour = 0');
+            while($ligne = mysqli_fetch_row($nb_entree)){
+                echo "<div class="."item"."><img src=".$ligne['3']."> <div class="."item-infos"."><h3>".ucfirst($ligne['1'])."</h3><hr><p class="."prix".">".$ligne['2']." €"."</p></div></div><BR>";
+            }
+        }
+    ?>
 
     </section>
 
@@ -285,7 +214,7 @@
 
     <hr size="30">
 
-    <section id="desserts" class="desserts">
+    <section id="desserts" class="dessert_section">
 
         <div class="item">
 
@@ -384,7 +313,7 @@
 
     <hr size="30">
 
-    <section id="boissons" class="boissons">
+    <section id="boissons" class="boisson_section">
 
         <div class="item">
 

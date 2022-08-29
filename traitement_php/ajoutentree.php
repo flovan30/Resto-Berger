@@ -9,7 +9,7 @@ $base = mysqli_connect($link, $user, $mdp, $bdd);
 if ($base) {
     //on "exporte" le nom est on le met dans la variable nomentree
     $nomEntree = ($_POST['nomEntree']);
-    //on "exporte" le rpix est on le met dans la variable prixentree
+    //on "exporte" le prix est on le met dans la variable prixentree
     $prixEntree = ($_POST['prixentree']);
 
     //  ci-dessous on declare les variables concernant le fichier uploadé 
@@ -54,4 +54,3 @@ if ($base) {
     echo '<body onLoad="alert(\'ERREUR impossible de se connecter à la base de données\')">';
     echo '<meta http-equiv="refresh" content="0;URL=../PageAdmin.php">';;
 }
-// reste à implémenté la taille max
