@@ -216,96 +216,21 @@
 
     <section id="desserts" class="dessert_section">
 
-        <div class="item">
+        <?php
+        $link = 'localhost';
+        $user = 'root';
+        $mdp = '';
+        $bdd = 'test_bdd_resto_berger';
+        $base = mysqli_connect($link, $user, $mdp, $bdd);
 
-            <img src="images/test.jpg">
-
-            <div class="item-infos">
-                <h3>Dessert 1</h3>
-                <hr>
-                <p>description
-                <p>
-                <p class="prix">prix</p>
-            </div>
-
-        </div>
-        <div class="item">
-
-            <img src="images/test.jpg">
-
-            <div class="item-infos">
-                <h3>Dessert 2</h3>
-                <hr>
-                <p>description
-                <p>
-                <p class="prix">prix</p>
-            </div>
-
-        </div>
-        <div class="item">
-
-            <img src="images/test.jpg">
-
-            <div class="item-infos">
-                <h3>Dessert 3</h3>
-                <hr>
-                <p>description
-                <p>
-                <p class="prix">prix</p>
-            </div>
-
-        </div>
-        <div class="item">
-
-            <img src="images/test.jpg">
-
-            <div class="item-infos">
-                <h3>Dessert 4</h3>
-                <hr>
-                <p>description
-                <p>
-                <p class="prix">prix</p>
-            </div>
-
-        </div>
-        <div class="item">
-
-            <img src="images/test.jpg">
-
-            <div class="item-infos">
-                <h3>Dessert 5</h3>
-                <hr>
-                <p>description
-                <p>
-                <p class="prix">prix</p>
-            </div>
-
-        </div>
-        <div class="item">
-
-            <img src="images/test.jpg">
-
-            <div class="item-infos">
-                <h3>Dessert 6</h3>
-                <hr>
-                <p>description
-                <p>
-                <p class="prix">prix</p>
-            </div>
-
-        </div>
-        <div class="item">
-
-            <img src="images/test.jpg">
-
-            <div class="item-infos">
-                <h3>Dessert 7</h3>
-                <p>description
-                <p>
-                <p class="prix">prix</p>
-            </div>
-
-        </div>
+        if($base){
+            // affichage de tout les desserts de la base de données
+            $nb_dessert = mysqli_query($base, 'SELECT * FROM dessert');
+            while($ligne = mysqli_fetch_row($nb_dessert)){
+                echo "<div class="."item"."><img src=".$ligne['3']."> <div class="."item-infos"."><h3>".ucfirst($ligne['1'])."</h3><hr><p class="."prix".">".$ligne['2']." €"."</p></div></div><BR>";
+            }
+        }
+    ?>
 
     </section>
 
@@ -315,96 +240,21 @@
 
     <section id="boissons" class="boisson_section">
 
-        <div class="item">
+        <?php
+        $link = 'localhost';
+        $user = 'root';
+        $mdp = '';
+        $bdd = 'test_bdd_resto_berger';
+        $base = mysqli_connect($link, $user, $mdp, $bdd);
 
-            <img src="images/test.jpg">
-
-            <div class="item-infos">
-                <h3>Boisson 1</h3>
-                <hr>
-                <p>description
-                <p>
-                <p class="prix">prix</p>
-            </div>
-
-        </div>
-        <div class="item">
-
-            <img src="images/test.jpg">
-
-            <div class="item-infos">
-                <h3>Boisson 2</h3>
-                <hr>
-                <p>description
-                <p>
-                <p class="prix">prix</p>
-            </div>
-
-        </div>
-        <div class="item">
-
-            <img src="images/test.jpg">
-
-            <div class="item-infos">
-                <h3>Boisson 3</h3>
-                <hr>
-                <p>description
-                <p>
-                <p class="prix">prix</p>
-            </div>
-
-        </div>
-        <div class="item">
-
-            <img src="images/test.jpg">
-
-            <div class="item-infos">
-                <h3>Boisson 4</h3>
-                <hr>
-                <p>description
-                <p>
-                <p class="prix">prix</p>
-            </div>
-
-        </div>
-        <div class="item">
-
-            <img src="images/test.jpg">
-
-            <div class="item-infos">
-                <h3>Boisson 5</h3>
-                <hr>
-                <p>description
-                <p>
-                <p class="prix">prix</p>
-            </div>
-
-        </div>
-        <div class="item">
-
-            <img src="images/test.jpg">
-
-            <div class="item-infos">
-                <h3>Boisson 6</h3>
-                <hr>
-                <p>description
-                <p>
-                <p class="prix">prix</p>
-            </div>
-
-        </div>
-        <div class="item">
-
-            <img src="images/test.jpg">
-
-            <div class="item-infos">
-                <h3>Boisson 7</h3>
-                <p>description
-                <p>
-                <p class="prix">prix</p>
-            </div>
-
-        </div>
+        if($base){
+            // affichage de toutes les boisson dans la base de données
+            $nb_boisson = mysqli_query($base, 'SELECT * FROM boisson');
+            while($ligne = mysqli_fetch_row($nb_boisson)){
+                echo "<div class="."item"."><img src=".$ligne['3']."> <div class="."item-infos"."><h3>".ucfirst($ligne['1'])."</h3><hr><p class="."prix".">".$ligne['2']." €"."</p></div></div><BR>";
+            }
+        }
+    ?>
 
     </section>
 

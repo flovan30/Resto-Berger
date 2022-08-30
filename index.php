@@ -15,6 +15,7 @@
     <title>Resto-Berger-restaurant</title>
 </head>
 
+
 <!-- NavBar -->
 <div class="nav">
     <ul>

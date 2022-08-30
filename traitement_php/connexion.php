@@ -23,7 +23,7 @@
             $rows = mysqli_num_rows($result);
     
             // si le compte existe
-            if($rows===1){
+            if($rows==1){
                 while($row = mysqli_fetch_assoc($result)){
                     $idclient = $row['idClient'];
                     $prenomClient = $row['prenomClient'];

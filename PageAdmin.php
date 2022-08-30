@@ -171,6 +171,7 @@
             </div>
         </div>
     </div>
+    <!--_______________________________________________ce qui concerne les plats____________________________________________________________________________________-->
     <hr>
     <h2 class="title_section">Les plats</h2>
     <div class="box">
@@ -187,10 +188,10 @@
         $base = mysqli_connect($link, $user, $mdp, $bdd);
 
         if ($base){
-            $nb_entree = mysqli_query($base, 'SELECT * FROM plat');
+            $nb_plat = mysqli_query($base, 'SELECT * FROM plat');
             echo"<table>";
             echo"<thead><tr><th>Id plat</th><th>Désignation plat</th><th>Prix plat</th><th>Plat du jour ?</th></tr></thead><tbody>";
-            while($ligne = mysqli_fetch_row($nb_entree)){
+            while($ligne = mysqli_fetch_row($nb_plat)){
                 // verification si c'est en plat du jour 
                 if($ligne['4'] == 0){
                     $platdujour = "non";
@@ -250,6 +251,113 @@
             </form>
         </div>
     </div>
+    <!--_______________________________________________ce qui concerne les desserts____________________________________________________________________________________-->
+    <hr>
+    <h2 class="title_section">Les desserts</h2>
+    <div class="box">
+        <div class="list">
+            <h3 class="title_list">Liste des desserts</h3>
+
+            <!-- liste qui contient tout les desserts -->
+            <div class="tableau">
+                <?php
+        $link = 'localhost';
+        $user = 'root';
+        $mdp = '';
+        $bdd = 'test_bdd_resto_berger';
+        $base = mysqli_connect($link, $user, $mdp, $bdd);
+
+        if ($base){
+            $nb_dessert = mysqli_query($base, 'SELECT * FROM dessert');
+            echo"<table>";
+            echo"<thead><tr><th>Id dessert</th><th>Désignation dessert</th><th>Prix dessert</th></tr></thead><tbody>";
+            while($ligne = mysqli_fetch_row($nb_dessert)){
+                echo "<tr> <td>".$ligne['0']."</td> <td>".$ligne['1']."</td> <td>".$ligne['2']." €"."</td> </tr>";
+            }
+            echo"</tbody></table></div><BR>";
+        }
+    ?>
+            </div>
+            <div class="add">
+                <!-- formulaire d'ajout de dessert  -->
+                <h3 class="title_add">Ajout d'un dessert</h3>
+                <form class="form_add" enctype="multipart/form-data" action="traitement_php/ajoutdessert.php"
+                    method="post">
+                    <label for="nomDessert">Nom du dessert :</label><br>
+                    <input type="text" name="nomDessert" id="nomDessert" required><br><br>
+                    <label for="prixdessert">Veuillez saisir le prix du dessert</label><br>
+                    <input type="number" step="0.01" name="prixdessert" id="prixdessert" required><br>
+                    <label for="imageDessert"><br> Veuillez choisir une image pour le dessert</label><br>
+                    <input type="file" name="imageDessert" id="imageDessert" required>
+                    <input type="hidden" name="MAX_FILE_SIZE" value="10000000"><br><br>
+                    <input type="submit" value="Ajouter à la base de donnée" />
+                </form><br>
+            </div>
+
+            <div class="supp">
+                <h3>Suppression d'un dessert</h3>
+                <form action="traitement_php/suppressionDessertBDD.php" method="POST">
+                    <label for="idEntree">Identifiant du dessert</label><br>
+                    <input type="number" name="idDessert" id="idDessert"><br><br>
+                    <input type="submit" value="Supprimer de la base de données">
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--_______________________________________________ce qui concerne les boissons____________________________________________________________________________________-->
+    <hr>
+    <h2 class="title_section">Les boissons</h2>
+    <div class="box">
+        <div class="list">
+            <h3 class="title_list">Liste des boissons</h3>
+
+            <!-- liste qui contient tout les boissons -->
+            <div class="tableau">
+                <?php
+        $link = 'localhost';
+        $user = 'root';
+        $mdp = '';
+        $bdd = 'test_bdd_resto_berger';
+        $base = mysqli_connect($link, $user, $mdp, $bdd);
+
+        if ($base){
+            $nb_boisson = mysqli_query($base, 'SELECT * FROM boisson');
+            echo"<table>";
+            echo"<thead><tr><th>Id boisson</th><th>Désignation boisson</th><th>Prix boisson</th></tr></thead><tbody>";
+            while($ligne = mysqli_fetch_row($nb_boisson)){
+                echo "<tr> <td>".$ligne['0']."</td> <td>".$ligne['1']."</td> <td>".$ligne['2']." €"."</td> </tr>";
+            }
+            echo"</tbody></table></div><BR>";
+        }
+    ?>
+            </div>
+            <div class="add">
+                <!-- formulaire d'ajout de  boisson -->
+                <h3 class="title_add">Ajout d'une boisson</h3>
+                <form class="form_add" enctype="multipart/form-data" action="traitement_php/ajoutboisson.php"
+                    method="post">
+                    <label for="nomBoisson">Nom de la boisson :</label><br>
+                    <input type="text" name="nomBoisson" id="nomBoisson" required><br><br>
+                    <label for="prixboisson">Veuillez saisir le prix de la boisson</label><br>
+                    <input type="number" step="0.01" name="prixboisson" id="prixboisson" required><br>
+                    <label for="imageBoisson"><br> Veuillez choisir une image pour la boisson</label><br>
+                    <input type="file" name="imageBoisson" id="imageBoisson" required>
+                    <input type="hidden" name="MAX_FILE_SIZE" value="10000000"><br><br>
+                    <input type="submit" value="Ajouter à la base de donnée" />
+                </form><br>
+            </div>
+
+            <div class="supp">
+                <h3>Suppression d'une boisson</h3>
+                <form action="traitement_php/suppressionBoissonBDD.php" method="POST">
+                    <label for="idBoisson">Identifiant de la boisson</label><br>
+                    <input type="number" name="idBoisson" id="idBoisson"><br><br>
+                    <input type="submit" value="Supprimer de la base de données">
+                </form>
+            </div>
+        </div>
+    </div>
+
 </body>
 
 </html>
