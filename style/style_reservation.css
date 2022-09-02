@@ -17,10 +17,6 @@
     grid-area: informations;
 }
 
-.plan {
-    grid-area: plan;
-}
-
 .reserv {
     padding: 40px;
     background: #9B0F00;
@@ -119,32 +115,4 @@
 
 .inputBox input[type="submit"]:hover {
     background: #696969;
-}
-
-/* Responsive */
-
-@media (max-width: 991px) {
-    body {
-        background: #fff;
-    }
-    .contactUS {
-        padding: 20px;
-    }
-    .box {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
-        grid-template-areas: "informations" "plan";
-    }
-    }
-    .formBox .row50 {
-        display: flex;
-        gap: 0;
-        flex-direction: column;
-    }
-    .inputBox {
-        width: 100%;
-    }
-    .reserv {
-        padding: 30px;
-    }
 }
