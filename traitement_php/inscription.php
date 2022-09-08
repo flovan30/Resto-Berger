@@ -8,7 +8,7 @@ $bdd = 'test_bdd_resto_berger';
 $base = mysqli_connect($link, $user, $mdp, $bdd);
 
 
-if($base){
+if ($base) {
     // recuperation des donnees
     $prenomClient = ($_POST['prenomClient']);
     $nomClient = ($_POST['nomClient']);
@@ -33,48 +33,48 @@ if($base){
     $verifMDP = FALSE;
     $longueurMotdepasse = strlen($mdpClient);
 
-// ________________________________________verif ___________________________________
+    // ________________________________________verif ___________________________________
 
     // verification des conditions pour le tel
-    if($longueurTel == 10 && $telClient[0] == chr(48)){
+    if ($longueurTel == 9 && $telClient[0] == chr(48)) {
         $verifTel = true;
     }
 
     // verification des conditions pour le mail
-    for($i=0; $i < $longueurMail; $i++){
-        if ($mailClient[$i]==chr(64)){
+    for ($i = 0; $i < $longueurMail; $i++) {
+        if ($mailClient[$i] == chr(64)) {
             $verifMail = true;
         }
     }
 
     // verification des conditions pour le mot de passe 
-    for($i=0; $i < $longueurMotdepasse; $i++){
-        if($mdpClient[$i]>=chr(65) && $mdpClient[$i]<=chr(90)){
+    for ($i = 0; $i < $longueurMotdepasse; $i++) {
+        if ($mdpClient[$i] >= chr(65) && $mdpClient[$i] <= chr(90)) {
             $maj = true;
         }
-        if($mdpClient[$i]>=chr(97) && $mdpClient[$i]<=chr(122)){
+        if ($mdpClient[$i] >= chr(97) && $mdpClient[$i] <= chr(122)) {
             $min = true;
         }
-        if ($mdpClient[$i]>=chr(48) && $mdpClient[$i]<=chr(57)){
+        if ($mdpClient[$i] >= chr(48) && $mdpClient[$i] <= chr(57)) {
             $chi = true;
         }
-        if($mdpClient[$i]>=chr(33) && $mdpClient[$i]<=chr(47) || $mdpClient[$i] <=chr(58) && $mdpClient[$i]<=chr(64) || $mdpClient[$i]<=chr(91) && $mdpClient[$i]<=chr(96) || $mdpClient[$i]>=chr(123) && $mdpClient[$i]<=chr(126)){
+        if ($mdpClient[$i] >= chr(33) && $mdpClient[$i] <= chr(47) || $mdpClient[$i] <= chr(58) && $mdpClient[$i] <= chr(64) || $mdpClient[$i] <= chr(91) && $mdpClient[$i] <= chr(96) || $mdpClient[$i] >= chr(123) && $mdpClient[$i] <= chr(126)) {
             $cara = true;
         }
     }
 
-    if(strcmp($mdpClient,$confirme_mdpClient) == 0){
+    if (strcmp($mdpClient, $confirme_mdpClient) == 0) {
         $verifMDP = true;
     }
 
     // chiffrement du mot de passe 
-    if($verifMDP = true && $maj == true && $min == true && $chi == true && $cara == true){
-        $mdpClient = hash('sha256',$mdpClient);
+    if ($verifMDP = true && $maj == true && $min == true && $chi == true && $cara == true) {
+        $mdpClient = hash('sha256', $mdpClient);
     }
 
     // si toutes les conditions sont respecter on entre les informations dans la base de donnees
-    if($verifMail == TRUE && $verifTel == TRUE && $verifMDP == TRUE){
-        $requete = 'INSERT INTO clients (prenomClient,nomClient ,mailClient,telClient,mdpClient) VALUES ("'. $prenomClient .'","'. $nomClient .'","'. $mailClient .'","'. $telClient .'","'. $mdpClient .'")';
+    if ($verifMail == TRUE && $verifTel == TRUE && $verifMDP == TRUE) {
+        $requete = 'INSERT INTO clients (prenomClient,nomClient ,mailClient,telClient,mdpClient) VALUES ("' . $prenomClient . '","' . $nomClient . '","' . $mailClient . '","' . $telClient . '","' . $mdpClient . '")';
         mysqli_query($base, $requete);
         echo '<body onLoad="alert(\'Vous venez de vous enregistrer \')">';
         echo '<meta http-equiv="refresh" content="0;URL=../index.php">';

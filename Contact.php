@@ -14,7 +14,7 @@
 
 <body>
     <!-- NavBar -->
-    <div class="nav">
+    <nav>
         <ul>
             <!-- Logo -->
             <li>
@@ -109,10 +109,9 @@
             <?php
     }
 ?>
-
-
         </ul>
-        <br><br><br><br><br>
+    </nav>
+    <br><br><br><br><br>
     </div>
 
     <div class="contactUS">
@@ -142,7 +141,7 @@
                             </div>
                             <div class="inputBox">
                                 <span>Votre numéro de téléphone : </span>
-                                <input type="text" placeholder="0* ** ** ** **">
+                                <input type="text" value="0* ** ** ** **">
                             </div>
                         </div>
 

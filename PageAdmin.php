@@ -1,4 +1,4 @@
-<?php session_start()?>
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,7 +16,7 @@
 <body>
 
     <!--Début de la NavBar-->
-    <div class="nav">
+    <nav>
         <ul>
             <!-- Logo -->
             <li>
@@ -68,8 +68,8 @@
             </li>
 
             <?php
-    if(!empty($_SESSION['username']) && $_SESSION['admin?'] == 1){
-?>
+            if (!empty($_SESSION['username']) && $_SESSION['admin?'] == 1) {
+            ?>
             <!-- Lien vers le profil si utilisateur connecté admin-->
             <li>
                 <a href="PageAdmin.php">
@@ -81,9 +81,8 @@
                 </a>
             </li>
             <?php
-    }
-    else if(!empty($_SESSION['username']) && $_SESSION['admin?'] == 0){
-        ?>
+            } else if (!empty($_SESSION['username']) && $_SESSION['admin?'] == 0) {
+            ?>
             <!-- Lien vers le profil si utilisateur connecté non-admin-->
             <li>
                 <a href="profile.php">
@@ -95,9 +94,8 @@
                 </a>
             </li>
             <?php
-    }
-    else{
-?>
+            } else {
+            ?>
             <!-- Lien vers la connexion si utilisateur pas connecté-->
             <li>
                 <a href="connexion.php">
@@ -109,10 +107,11 @@
                 </a>
             </li>
             <?php
-    }
-?>
+            }
+            ?>
         </ul>
-        <br><br><br><br><br><br><br><br><br><br>
+    </nav>
+    <br><br><br><br><br><br><br><br><br><br>
     </div>
     <!--Fin de la NavBar-->
 
@@ -128,22 +127,22 @@
             <!-- liste qui contient toutes les entrees -->
             <div class="tableau">
                 <?php
-        $link = 'localhost';
-        $user = 'root';
-        $mdp = '';
-        $bdd = 'test_bdd_resto_berger';
-        $base = mysqli_connect($link, $user, $mdp, $bdd);
+                $link = 'localhost';
+                $user = 'root';
+                $mdp = '';
+                $bdd = 'test_bdd_resto_berger';
+                $base = mysqli_connect($link, $user, $mdp, $bdd);
 
-        if ($base){
-            $nb_entree = mysqli_query($base, 'SELECT * FROM entree');
-            echo"<table>";
-            echo"<thead><tr><th>Id entrée</th><th>Désignation entrée</th><th>Prix entrée</th></tr></thead><tbody>";
-            while($ligne = mysqli_fetch_row($nb_entree)){
-                echo "<tr> <td>".$ligne['0']."</td> <td>".$ligne['1']."</td> <td>".$ligne['2']." €"."</td> </tr>";
-            }
-            echo"</tbody></table></div><BR>";
-        }
-    ?>
+                if ($base) {
+                    $nb_entree = mysqli_query($base, 'SELECT * FROM entree');
+                    echo "<table>";
+                    echo "<thead><tr><th>Id entrée</th><th>Désignation entrée</th><th>Prix entrée</th></tr></thead><tbody>";
+                    while ($ligne = mysqli_fetch_row($nb_entree)) {
+                        echo "<tr> <td>" . $ligne['0'] . "</td> <td>" . $ligne['1'] . "</td> <td>" . $ligne['2'] . " €" . "</td> </tr>";
+                    }
+                    echo "</tbody></table></div><BR>";
+                }
+                ?>
             </div>
             <div class="add">
                 <!-- formulaire d'ajout d'entrée  -->
@@ -181,29 +180,28 @@
             <!-- liste qui contient tout les plats -->
             <div class="tableau">
                 <?php
-        $link = 'localhost';
-        $user = 'root';
-        $mdp = '';
-        $bdd = 'test_bdd_resto_berger';
-        $base = mysqli_connect($link, $user, $mdp, $bdd);
+                $link = 'localhost';
+                $user = 'root';
+                $mdp = '';
+                $bdd = 'test_bdd_resto_berger';
+                $base = mysqli_connect($link, $user, $mdp, $bdd);
 
-        if ($base){
-            $nb_plat = mysqli_query($base, 'SELECT * FROM plat');
-            echo"<table>";
-            echo"<thead><tr><th>Id plat</th><th>Désignation plat</th><th>Prix plat</th><th>Plat du jour ?</th></tr></thead><tbody>";
-            while($ligne = mysqli_fetch_row($nb_plat)){
-                // verification si c'est en plat du jour 
-                if($ligne['4'] == 0){
-                    $platdujour = "non";
+                if ($base) {
+                    $nb_plat = mysqli_query($base, 'SELECT * FROM plat');
+                    echo "<table>";
+                    echo "<thead><tr><th>Id plat</th><th>Désignation plat</th><th>Prix plat</th><th>Plat du jour ?</th></tr></thead><tbody>";
+                    while ($ligne = mysqli_fetch_row($nb_plat)) {
+                        // verification si c'est en plat du jour 
+                        if ($ligne['4'] == 0) {
+                            $platdujour = "non";
+                        } else {
+                            $platdujour = "oui";
+                        }
+                        echo "<tr> <td>" . $ligne['0'] . "</td> <td>" . $ligne['1'] . "</td> <td>" . $ligne['2'] . " €" . "</td><td>" . $platdujour . "</td></tr>";
+                    }
+                    echo "</tbody></table></div><BR>";
                 }
-                else{
-                    $platdujour = "oui";
-                }
-                echo "<tr> <td>".$ligne['0']."</td> <td>".$ligne['1']."</td> <td>".$ligne['2']." €"."</td><td>".$platdujour."</td></tr>";
-            }
-            echo"</tbody></table></div><BR>";
-        }
-    ?>
+                ?>
 
             </div>
             <div class="add">
@@ -261,22 +259,22 @@
             <!-- liste qui contient tout les desserts -->
             <div class="tableau">
                 <?php
-        $link = 'localhost';
-        $user = 'root';
-        $mdp = '';
-        $bdd = 'test_bdd_resto_berger';
-        $base = mysqli_connect($link, $user, $mdp, $bdd);
+                $link = 'localhost';
+                $user = 'root';
+                $mdp = '';
+                $bdd = 'test_bdd_resto_berger';
+                $base = mysqli_connect($link, $user, $mdp, $bdd);
 
-        if ($base){
-            $nb_dessert = mysqli_query($base, 'SELECT * FROM dessert');
-            echo"<table>";
-            echo"<thead><tr><th>Id dessert</th><th>Désignation dessert</th><th>Prix dessert</th></tr></thead><tbody>";
-            while($ligne = mysqli_fetch_row($nb_dessert)){
-                echo "<tr> <td>".$ligne['0']."</td> <td>".$ligne['1']."</td> <td>".$ligne['2']." €"."</td> </tr>";
-            }
-            echo"</tbody></table></div><BR>";
-        }
-    ?>
+                if ($base) {
+                    $nb_dessert = mysqli_query($base, 'SELECT * FROM dessert');
+                    echo "<table>";
+                    echo "<thead><tr><th>Id dessert</th><th>Désignation dessert</th><th>Prix dessert</th></tr></thead><tbody>";
+                    while ($ligne = mysqli_fetch_row($nb_dessert)) {
+                        echo "<tr> <td>" . $ligne['0'] . "</td> <td>" . $ligne['1'] . "</td> <td>" . $ligne['2'] . " €" . "</td> </tr>";
+                    }
+                    echo "</tbody></table></div><BR>";
+                }
+                ?>
             </div>
             <div class="add">
                 <!-- formulaire d'ajout de dessert  -->
@@ -314,22 +312,22 @@
             <!-- liste qui contient tout les boissons -->
             <div class="tableau">
                 <?php
-        $link = 'localhost';
-        $user = 'root';
-        $mdp = '';
-        $bdd = 'test_bdd_resto_berger';
-        $base = mysqli_connect($link, $user, $mdp, $bdd);
+                $link = 'localhost';
+                $user = 'root';
+                $mdp = '';
+                $bdd = 'test_bdd_resto_berger';
+                $base = mysqli_connect($link, $user, $mdp, $bdd);
 
-        if ($base){
-            $nb_boisson = mysqli_query($base, 'SELECT * FROM boisson');
-            echo"<table>";
-            echo"<thead><tr><th>Id boisson</th><th>Désignation boisson</th><th>Prix boisson</th></tr></thead><tbody>";
-            while($ligne = mysqli_fetch_row($nb_boisson)){
-                echo "<tr> <td>".$ligne['0']."</td> <td>".$ligne['1']."</td> <td>".$ligne['2']." €"."</td> </tr>";
-            }
-            echo"</tbody></table></div><BR>";
-        }
-    ?>
+                if ($base) {
+                    $nb_boisson = mysqli_query($base, 'SELECT * FROM boisson');
+                    echo "<table>";
+                    echo "<thead><tr><th>Id boisson</th><th>Désignation boisson</th><th>Prix boisson</th></tr></thead><tbody>";
+                    while ($ligne = mysqli_fetch_row($nb_boisson)) {
+                        echo "<tr> <td>" . $ligne['0'] . "</td> <td>" . $ligne['1'] . "</td> <td>" . $ligne['2'] . " €" . "</td> </tr>";
+                    }
+                    echo "</tbody></table></div><BR>";
+                }
+                ?>
             </div>
             <div class="add">
                 <!-- formulaire d'ajout de  boisson -->

@@ -18,7 +18,7 @@
 <body>
 
     <!-- NavBar -->
-    <div class="nav">
+    <nav>
         <ul>
             <!-- Logo -->
             <li>
@@ -113,9 +113,9 @@
             <?php
     }
 ?>
-
         </ul>
-        <br><br><br><br><br><br><br>
+    </nav>
+    <br><br><br><br><br><br><br>
     </div>
 
     <!-- En-tête -->
@@ -139,16 +139,16 @@
 
     </header>
 
-    <!-- Navigation du menu -->5
-    <div class="section-menu">
-        <nav class="menu">
+    <!-- Navigation du menu -->
+    <div class="section-menu nav_menu">
+        <div class="menu">
             <ul>
                 <li class="box-menu nav-item entrees"><a href="#entrees">Entrées</a></li>
                 <li class="box-menu nav-item plats"><a href="#plats">Plats</a></li>
                 <li class="box-menu nav-item desserts"><a href="#desserts">Desserts</a></li>
                 <li class="box-menu nav-item boissons"><a href="#boissons">Boissons</a></li>
             </ul>
-        </nav>
+        </div>
     </div>
 
     <hr size="30">

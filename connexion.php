@@ -13,7 +13,7 @@
 
 <body>
     <!-- NavBar -->
-    <div class="nav">
+    <nav>
         <ul>
             <!-- Logo -->
             <li>
@@ -75,7 +75,7 @@
                 </a>
             </li>
         </ul>
-    </div>
+    </nav>
 
 
     <br><br><br><br><br>

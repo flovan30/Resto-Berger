@@ -17,7 +17,7 @@
 
 
 <!-- NavBar -->
-<div class="nav">
+<nav>
     <ul>
         <!-- Logo -->
         <li>
@@ -112,10 +112,9 @@
         <?php
     }
 ?>
-
-
     </ul>
-    <br><br><br><br><br><br><br><br><br><br>
+</nav>
+<br><br><br><br><br><br><br><br><br><br>
 </div>
 
 <body>

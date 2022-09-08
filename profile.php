@@ -4,11 +4,19 @@
 
 <head>
     <meta charset="UTF-8">
+    <!--CSS de la page de la page de profile-->
+    <link rel="stylesheet" type="text/css" href="style/style_profile.css" />
+    <!--CSS de la NavBar-->
+    <link rel="stylesheet" type="text/css" href="style/style_nav.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Votre profile</title>
 </head>
 
 <body>
-    <div class="nav">
+    <!-- NavBar -->
+    <nav>
         <ul>
             <!-- Logo -->
             <li>
@@ -83,7 +91,7 @@
                         <i class="fas fa-user"></i>
                         <i class="fas fa-user"></i>
                     </div>
-                    <div class="name"><span data-text="Profile">Mon_Profile</span></div>
+                    <div class="name"><span data-text="Profile">Profile</span></div>
                 </a>
             </li>
             <?php
@@ -103,11 +111,9 @@
             <?php
     }
 ?>
-
-
         </ul>
-        <br><br><br><br><br><br><br><br><br><br>
-    </div>
+    </nav>
+    <br><br><br><br><br><br><br><br>
     <h1>
         <?php
         echo "Bienvenue " . $_SESSION['username'];

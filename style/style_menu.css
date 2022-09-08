@@ -85,11 +85,11 @@ header p {
 	transform: translateY(-30px);
 }
 
-nav.menu ul {
+.nav_menu .menu ul {
 	display: flex;
 }
 
-nav.menu ul li {
+.nav_menu .menu ul li {
 	list-style-type: none;
 	display: flex;
 	align-items: center;
@@ -97,12 +97,12 @@ nav.menu ul li {
 	transition: 0.3s all;
 }
 
-nav.menu ul li:hover {
+.nav_menu .menu ul li:hover {
 	transform: scale(1.1);
 	transition: 0.3s all;
 }
 
-nav.menu ul li a {
+.nav_menu .menu ul li a {
 	border: #fff 2px solid;
 	background-color: rgba(255, 255, 255, 0.6);
 	color: black;

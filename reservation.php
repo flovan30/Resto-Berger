@@ -1,4 +1,4 @@
-<?php session_start()?>
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -18,7 +18,7 @@
 
 <body>
     <!-- NavBar -->
-    <div class="nav">
+    <nav>
         <ul>
             <!-- Logo -->
             <li>
@@ -70,8 +70,8 @@
             </li>
 
             <?php
-    if(!empty($_SESSION['username']) && $_SESSION['admin?'] == 1){
-?>
+            if (!empty($_SESSION['username']) && $_SESSION['admin?'] == 1) {
+            ?>
             <!-- Lien vers le profil si utilisateur connecté admin-->
             <li>
                 <a href="PageAdmin.php">
@@ -83,9 +83,8 @@
                 </a>
             </li>
             <?php
-    }
-    else if(!empty($_SESSION['username']) && $_SESSION['admin?'] == 0){
-        ?>
+            } else if (!empty($_SESSION['username']) && $_SESSION['admin?'] == 0) {
+            ?>
             <!-- Lien vers le profil si utilisateur connecté non-admin-->
             <li>
                 <a href="profile.php">
@@ -97,9 +96,8 @@
                 </a>
             </li>
             <?php
-    }
-    else{
-?>
+            } else {
+            ?>
             <!-- Lien vers la connexion si utilisateur pas connecté-->
             <li>
                 <a href="connexion.php">
@@ -111,56 +109,76 @@
                 </a>
             </li>
             <?php
-    }
-?>
-
-
+            }
+            ?>
         </ul>
-        <br><br><br><br><br><br><br><br><br><br>
+    </nav>
+    <br><br><br><br><br><br><br><br>
+
+    <?php
+    // si le client est connecté 
+    if (!empty($_SESSION['username'])) {
+
+        // déclaration des variable de dates pour le formulaire (J+1)
+        $today = date("Y-m-d");
+        $dateJP1 = date("Y-m-d", strtotime($today . ' +1 day'));
+    ?>
+
+    <div class="box">
+        <h3 class="title_reserv">Pour commencer à reserver veuillez séléctionner une date</h3>
+        <div class="date-form">
+            <form action="reservation.php" method="POST">
+                <label for="dateReservation">Date de réservation</label>
+                <input type="date" name="dateReservation" require id="dateReservation"
+                    <?php echo "min='$dateJP1'"; ?>><br><br>
+                <label for="typeService">Pour quel service voulez-vous reserver ?</label><br>
+                <!-- 0 pour le service du midi | 1 pour le service du soir -->
+                <input type="radio" name="typeService" id="typeService" value="0" require>service du midi
+                <input type="radio" name="typeService" id="typeService" value="1" require>Service du soir <br><br>
+                <label for="nbPersonne">Pour combien de personne ? </label>
+                <input type="number" name="nbPersonne" id="nbPersonne" max="70" min="1" require><br><br><br>
+                <input class="submit-date" type="submit" value="Verifier les disponibilités">
+            </form>
+        </div>
     </div>
 
-    <div class="contactUS">
+    <?php
+        if (isset($_POST['dateReservation']) && isset($_POST['nbPersonne']) && isset($_POST['typeService'])) {
+            $dateReservation = str_replace("-", "", $_POST['dateReservation']);
+            $typeService = $_POST['typeService'];
+            $nbPersonne = $_POST['nbPersonne'];
 
-        <div class="box">
+            $base = mysqli_connect('localhost', 'root', '', 'test_bdd_resto_berger');
+            $requeteVerif = ("SELECT * FROM services WHERE dateService = '$dateReservation' AND typeService = '$typeService'");
+            $result = mysqli_query($base, $requeteVerif);
+            $rows = mysqli_num_rows($result);
 
-            <div class="reserv informations">
-                <h3>Reservez une table !</h3>
+            if ($rows == 1) {
+                // boucle pour recuperer le nb place dispo
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $nbPlacesPrise = $row['nbPlacesPrise'];
+                }
+                echo $nbPlacesPrise;
+                if ($nbPlacesPrise += $nbPersonne <= 70) {
+                    // fermeture de php pour pouvoir donner la possibilité au client de confirmer sa reservation
+        ?>
 
-                <form>
-                    <div class="formBox">
 
-                        <div class="row50">
 
-                            <div class="inputBox">
-                                <span class="grandspan">Vous venez quel jour ?</span>
-                                <input type="date" name="dateReservation" required>
-                            </div>
-
-                            <div class="inputBox">
-                                <span class="grandspan">Vous arrivez à quelle heure ?</span>
-                                <input type="time" name="heureReservation" min="11:00" max="21:00" required>
-                            </div>
-
-                            <div class="inputBox">
-                                <span class="grandspan">Le soir ou le midi ?</span>
-                                <select name="serviceReservation" required>
-                                    <option value="null">Selectionnez une réponse</option>
-                                    <option value="midi">Service du midi</option>
-                                    <option value="soir">Service du soir</option>
-                                </select>
-                            </div>
-
-                            <div class="inputBox">
-                                <span class="grandspan">Vous serez combien ?</span>
-                                <input type="number" min="1" max="10" required>
-                            </div>
-
-                        </div>
-                        <input type="submit" value="Reserver">
-                    </div>
-                </form>
-            </div>
-        </div>
+    <?php
+                    // fermeture du if avec le calcul de nbPlacesDispo
+                }
+                // fermeture du if si il trouve la date du service dans la bdd
+            }
+        } else {
+            $requeteAjoutDate = ("INSERT INTO services (dateService,typeService,nbPlacesPrise) VALUES($dateReservation,$typeService,0)");
+            mysqli_query($base, $requeteAjoutDate);
+        }
+        // fermeture du if si le client n'est pas connecte
+    } else {
+        echo "<div class='notConnect'><h3 class='alert'>Veuillez vous connecter pour reserver : <a href='connexion.php'>Connectez-vous</a></h3></div>";
+    }
+    ?>
 </body>
 
 </html>

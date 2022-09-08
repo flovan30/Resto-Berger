@@ -32,7 +32,6 @@
                     $nbReservation = $row['nbReservations'];
                 }
                 
-                $_SESSION['userconnect'] = TRUE;
                 $_SESSION['idClient'] = $idclient;
                 $_SESSION['username'] = $prenomClient;
                 $_SESSION['nomClient'] = $nomClient;
@@ -44,7 +43,7 @@
 
             else{
                 echo '<body onLoad="alert(\'Le compte est introuvable \n Vous aller être redirigé vers la page de connexion\ \')">';
-                echo '<meta http-equiv="refresh" content="0;URL=../connexion.php">';
+                echo '<meta http-equiv="refresh" content="0;URL=../Contact.php">';
             }
         }
         else{
