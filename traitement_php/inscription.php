@@ -36,7 +36,7 @@ if ($base) {
     // ________________________________________verif ___________________________________
 
     // verification des conditions pour le tel
-    if ($longueurTel == 9 && $telClient[0] == chr(48)) {
+    if ($longueurTel == 10 && $telClient[0] == chr(48)) {
         $verifTel = true;
     }
 
