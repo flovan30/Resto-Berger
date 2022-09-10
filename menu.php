@@ -1,4 +1,4 @@
-<?php session_start()?>
+<?php session_start() ?>
 <!DOCTYPE html>
 <html>
 
@@ -70,8 +70,8 @@
             </li>
 
             <?php
-    if(!empty($_SESSION['username']) && $_SESSION['admin?'] == 1){
-?>
+            if (!empty($_SESSION['username']) && $_SESSION['admin?'] == 1) {
+            ?>
             <!-- Lien vers le profil si utilisateur connecté admin-->
             <li>
                 <a href="PageAdmin.php">
@@ -83,9 +83,8 @@
                 </a>
             </li>
             <?php
-    }
-    else if(!empty($_SESSION['username']) && $_SESSION['admin?'] == 0){
-        ?>
+            } else if (!empty($_SESSION['username']) && $_SESSION['admin?'] == 0) {
+            ?>
             <!-- Lien vers le profil si utilisateur connecté non-admin-->
             <li>
                 <a href="profile.php">
@@ -97,12 +96,11 @@
                 </a>
             </li>
             <?php
-    }
-    else{
-?>
+            } else {
+            ?>
             <!-- Lien vers la connexion si utilisateur pas connecté-->
             <li>
-                <a href="connexion.php">
+                <a href="connexion.html">
                     <div class="icon">
                         <i class='fas fa-key'></i>
                         <i class='fas fa-key'></i>
@@ -111,8 +109,8 @@
                 </a>
             </li>
             <?php
-    }
-?>
+            }
+            ?>
         </ul>
     </nav>
     <br><br><br><br><br><br><br>
@@ -164,14 +162,14 @@
         $bdd = 'test_bdd_resto_berger';
         $base = mysqli_connect($link, $user, $mdp, $bdd);
 
-        if($base){
+        if ($base) {
             // affichage de toutes les entrée dans la base de données
             $nb_entree = mysqli_query($base, 'SELECT * FROM entree');
-            while($ligne = mysqli_fetch_row($nb_entree)){
-                echo "<div class="."item"."><img src=".$ligne['3']."> <div class="."item-infos"."><h3>".ucfirst($ligne['1'])."</h3><hr><p class="."prix".">".$ligne['2']." €"."</p></div></div><BR>";
+            while ($ligne = mysqli_fetch_row($nb_entree)) {
+                echo "<div class=" . "item" . "><img src=" . $ligne['3'] . "> <div class=" . "item-infos" . "><h3>" . ucfirst($ligne['1']) . "</h3><hr><p class=" . "prix" . ">" . $ligne['2'] . " €" . "</p></div></div><BR>";
             }
         }
-    ?>
+        ?>
 
     </section>
 
@@ -190,22 +188,22 @@
         $base = mysqli_connect($link, $user, $mdp, $bdd);
 
         // les plats du jour
-        if($base){
+        if ($base) {
             // affichage de toutes les entrée dans la base de données
             $nb_entree = mysqli_query($base, 'SELECT * FROM plat WHERE platdujour = 1');
-            while($ligne = mysqli_fetch_row($nb_entree)){
-                echo "<div class="."item"."><img src=".$ligne['3']."> <div class="."item-infos"."><h3>".ucfirst($ligne['1'])."</h3><hr><h2 class="."platdujour".">Plat du jour</h2><p class="."prix".">".$ligne['2']." €"."</p></div></div><BR>";
+            while ($ligne = mysqli_fetch_row($nb_entree)) {
+                echo "<div class=" . "item" . "><img src=" . $ligne['3'] . "> <div class=" . "item-infos" . "><h3>" . ucfirst($ligne['1']) . "</h3><hr><h2 class=" . "platdujour" . ">Plat du jour</h2><p class=" . "prix" . ">" . $ligne['2'] . " €" . "</p></div></div><BR>";
             }
         }
         // les plats de la carte
-        if($base){
+        if ($base) {
             // affichage de toutes les entrée dans la base de données
             $nb_entree = mysqli_query($base, 'SELECT * FROM plat WHERE platdujour = 0');
-            while($ligne = mysqli_fetch_row($nb_entree)){
-                echo "<div class="."item"."><img src=".$ligne['3']."> <div class="."item-infos"."><h3>".ucfirst($ligne['1'])."</h3><hr><p class="."prix".">".$ligne['2']." €"."</p></div></div><BR>";
+            while ($ligne = mysqli_fetch_row($nb_entree)) {
+                echo "<div class=" . "item" . "><img src=" . $ligne['3'] . "> <div class=" . "item-infos" . "><h3>" . ucfirst($ligne['1']) . "</h3><hr><p class=" . "prix" . ">" . $ligne['2'] . " €" . "</p></div></div><BR>";
             }
         }
-    ?>
+        ?>
 
     </section>
 
@@ -223,14 +221,14 @@
         $bdd = 'test_bdd_resto_berger';
         $base = mysqli_connect($link, $user, $mdp, $bdd);
 
-        if($base){
+        if ($base) {
             // affichage de tout les desserts de la base de données
             $nb_dessert = mysqli_query($base, 'SELECT * FROM dessert');
-            while($ligne = mysqli_fetch_row($nb_dessert)){
-                echo "<div class="."item"."><img src=".$ligne['3']."> <div class="."item-infos"."><h3>".ucfirst($ligne['1'])."</h3><hr><p class="."prix".">".$ligne['2']." €"."</p></div></div><BR>";
+            while ($ligne = mysqli_fetch_row($nb_dessert)) {
+                echo "<div class=" . "item" . "><img src=" . $ligne['3'] . "> <div class=" . "item-infos" . "><h3>" . ucfirst($ligne['1']) . "</h3><hr><p class=" . "prix" . ">" . $ligne['2'] . " €" . "</p></div></div><BR>";
             }
         }
-    ?>
+        ?>
 
     </section>
 
@@ -247,14 +245,14 @@
         $bdd = 'test_bdd_resto_berger';
         $base = mysqli_connect($link, $user, $mdp, $bdd);
 
-        if($base){
+        if ($base) {
             // affichage de toutes les boisson dans la base de données
             $nb_boisson = mysqli_query($base, 'SELECT * FROM boisson');
-            while($ligne = mysqli_fetch_row($nb_boisson)){
-                echo "<div class="."item"."><img src=".$ligne['3']."> <div class="."item-infos"."><h3>".ucfirst($ligne['1'])."</h3><hr><p class="."prix".">".$ligne['2']." €"."</p></div></div><BR>";
+            while ($ligne = mysqli_fetch_row($nb_boisson)) {
+                echo "<div class=" . "item" . "><img src=" . $ligne['3'] . "> <div class=" . "item-infos" . "><h3>" . ucfirst($ligne['1']) . "</h3><hr><p class=" . "prix" . ">" . $ligne['2'] . " €" . "</p></div></div><BR>";
             }
         }
-    ?>
+        ?>
 
     </section>
 

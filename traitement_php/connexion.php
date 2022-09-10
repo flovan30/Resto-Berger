@@ -1,5 +1,4 @@
 <?php
-
     session_start();
 
     // si le formulaire est envoye 
@@ -55,4 +54,3 @@
         echo '<body onLoad="alert(\'Aucune informations reçu \')">';
         echo '<meta http-equiv="refresh" content="0;URL=../connexion.php">';
     }
-?>

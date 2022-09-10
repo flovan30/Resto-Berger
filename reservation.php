@@ -10,9 +10,7 @@
     <link rel="stylesheet" type="text/css" href="style/style_nav.css" />
     <!--Font de texte-->
     <link href="https://fonts.googleapis.com/css2?family=Kenia&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-        integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Gastro-Berger-restaurant</title>
 </head>
 
@@ -72,42 +70,42 @@
             <?php
             if (!empty($_SESSION['username']) && $_SESSION['admin?'] == 1) {
             ?>
-            <!-- Lien vers le profil si utilisateur connecté admin-->
-            <li>
-                <a href="PageAdmin.php">
-                    <div class="icon">
-                        <i class="fas fa-gear"></i>
-                        <i class="fas fa-gear"></i>
-                    </div>
-                    <div class="name"><span data-text="ADMIN">ADMIN</span></div>
-                </a>
-            </li>
+                <!-- Lien vers le profil si utilisateur connecté admin-->
+                <li>
+                    <a href="PageAdmin.php">
+                        <div class="icon">
+                            <i class="fas fa-gear"></i>
+                            <i class="fas fa-gear"></i>
+                        </div>
+                        <div class="name"><span data-text="ADMIN">ADMIN</span></div>
+                    </a>
+                </li>
             <?php
             } else if (!empty($_SESSION['username']) && $_SESSION['admin?'] == 0) {
             ?>
-            <!-- Lien vers le profil si utilisateur connecté non-admin-->
-            <li>
-                <a href="profile.php">
-                    <div class="icon">
-                        <i class="fas fa-user"></i>
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <div class="name"><span data-text="Profile">Mon_Profile</span></div>
-                </a>
-            </li>
+                <!-- Lien vers le profil si utilisateur connecté non-admin-->
+                <li>
+                    <a href="profile.php">
+                        <div class="icon">
+                            <i class="fas fa-user"></i>
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="name"><span data-text="Profile">Mon_Profile</span></div>
+                    </a>
+                </li>
             <?php
             } else {
             ?>
-            <!-- Lien vers la connexion si utilisateur pas connecté-->
-            <li>
-                <a href="connexion.php">
-                    <div class="icon">
-                        <i class='fas fa-key'></i>
-                        <i class='fas fa-key'></i>
-                    </div>
-                    <div class="name"><span data-text="Connexion">Connexion</span></div>
-                </a>
-            </li>
+                <!-- Lien vers la connexion si utilisateur pas connecté-->
+                <li>
+                    <a href="connexion.html">
+                        <div class="icon">
+                            <i class='fas fa-key'></i>
+                            <i class='fas fa-key'></i>
+                        </div>
+                        <div class="name"><span data-text="Connexion">Connexion</span></div>
+                    </a>
+                </li>
             <?php
             }
             ?>
@@ -124,23 +122,22 @@
         $dateJP1 = date("Y-m-d", strtotime($today . ' +1 day'));
     ?>
 
-    <div class="box">
-        <h3 class="title_reserv">Pour commencer à reserver veuillez séléctionner une date</h3>
-        <div class="date-form">
-            <form action="reservation.php" method="POST">
-                <label for="dateReservation">Date de réservation</label>
-                <input type="date" name="dateReservation" require id="dateReservation"
-                    <?php echo "min='$dateJP1'"; ?>><br><br>
-                <label for="typeService">Pour quel service voulez-vous reserver ?</label><br>
-                <!-- 0 pour le service du midi | 1 pour le service du soir -->
-                <input type="radio" name="typeService" id="typeService" value="0" require>service du midi
-                <input type="radio" name="typeService" id="typeService" value="1" require>Service du soir <br><br>
-                <label for="nbPersonne">Pour combien de personne ? </label>
-                <input type="number" name="nbPersonne" id="nbPersonne" max="70" min="1" require><br><br><br>
-                <input class="submit-date" type="submit" value="Verifier les disponibilités">
-            </form>
+        <div class="box">
+            <h3 class="title_reserv">Pour commencer à reserver veuillez séléctionner une date</h3>
+            <div class="date-form">
+                <form action="reservation.php" method="POST">
+                    <label for="dateReservation">Date de réservation</label>
+                    <input type="date" name="dateReservation" require id="dateReservation" <?php echo "min='$dateJP1'"; ?>><br><br>
+                    <label for="typeService">Pour quel service voulez-vous reserver ?</label><br>
+                    <!-- 0 pour le service du midi | 1 pour le service du soir -->
+                    <input type="radio" name="typeService" id="typeService" value="0" require>service du midi
+                    <input type="radio" name="typeService" id="typeService" value="1" require>Service du soir <br><br>
+                    <label for="nbPersonne">Pour combien de personne ? </label>
+                    <input type="number" name="nbPersonne" id="nbPersonne" max="70" min="1" require><br><br><br>
+                    <input class="submit-date" type="submit" value="Verifier les disponibilités">
+                </form>
+            </div>
         </div>
-    </div>
 
     <?php
         if (isset($_POST['dateReservation']) && isset($_POST['nbPersonne']) && isset($_POST['typeService'])) {

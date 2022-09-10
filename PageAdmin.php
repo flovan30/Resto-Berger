@@ -6,9 +6,7 @@
     <meta charset="uts-8">
     <link rel="stylesheet" type="text/css" href="style/style_nav.css" />
     <link rel="stylesheet" type="text/css" href="style/style_pageadmin.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-        integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Martel:wght@900&display=swap" rel="stylesheet">
     <title>Page d'administration</title>
 </head>
@@ -70,42 +68,42 @@
             <?php
             if (!empty($_SESSION['username']) && $_SESSION['admin?'] == 1) {
             ?>
-            <!-- Lien vers le profil si utilisateur connecté admin-->
-            <li>
-                <a href="PageAdmin.php">
-                    <div class="icon">
-                        <i class="fas fa-gear"></i>
-                        <i class="fas fa-gear"></i>
-                    </div>
-                    <div class="name"><span data-text="ADMIN">ADMIN</span></div>
-                </a>
-            </li>
+                <!-- Lien vers le profil si utilisateur connecté admin-->
+                <li>
+                    <a href="PageAdmin.php">
+                        <div class="icon">
+                            <i class="fas fa-gear"></i>
+                            <i class="fas fa-gear"></i>
+                        </div>
+                        <div class="name"><span data-text="ADMIN">ADMIN</span></div>
+                    </a>
+                </li>
             <?php
             } else if (!empty($_SESSION['username']) && $_SESSION['admin?'] == 0) {
             ?>
-            <!-- Lien vers le profil si utilisateur connecté non-admin-->
-            <li>
-                <a href="profile.php">
-                    <div class="icon">
-                        <i class="fas fa-user"></i>
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <div class="name"><span data-text="Profile">Mon_Profile</span></div>
-                </a>
-            </li>
+                <!-- Lien vers le profil si utilisateur connecté non-admin-->
+                <li>
+                    <a href="profile.php">
+                        <div class="icon">
+                            <i class="fas fa-user"></i>
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="name"><span data-text="Profile">Mon_Profile</span></div>
+                    </a>
+                </li>
             <?php
             } else {
             ?>
-            <!-- Lien vers la connexion si utilisateur pas connecté-->
-            <li>
-                <a href="connexion.php">
-                    <div class="icon">
-                        <i class='fas fa-key'></i>
-                        <i class='fas fa-key'></i>
-                    </div>
-                    <div class="name"><span data-text="Connexion">Connexion</span></div>
-                </a>
-            </li>
+                <!-- Lien vers la connexion si utilisateur pas connecté-->
+                <li>
+                    <a href="connexion.html">
+                        <div class="icon">
+                            <i class='fas fa-key'></i>
+                            <i class='fas fa-key'></i>
+                        </div>
+                        <div class="name"><span data-text="Connexion">Connexion</span></div>
+                    </a>
+                </li>
             <?php
             }
             ?>
@@ -116,7 +114,53 @@
     <!--Fin de la NavBar-->
 
     <h2 class="title">Page d'administration</h2>
-    <a class="log-out" href="traitement_php/deconnexion.php">se deconnecter</a>
+    <a class="log-out" href="traitement_php/deconnexion.php">se deconnecter</a><br><br>
+    <!--_______________________________________________ce qui concerne les services selon le jour____________________________________________________________________________________-->
+
+    <?php
+    $link = 'localhost';
+    $user = 'root';
+    $mdp = '';
+    $bdd = 'test_bdd_resto_berger';
+    $base = mysqli_connect($link, $user, $mdp, $bdd);
+    // recupération de la date du jour
+
+    if ($base) {
+        // service midi
+        $today = date("Y-m-d");
+        $today = str_replace("-", "", $today);
+        $requServiceDuJour = mysqli_query($base, "SELECT * FROM services WHERE dateService = $today AND typeService = 0");
+        $rows = mysqli_num_rows($requServiceDuJour);
+
+        if ($rows == 1) {
+            while ($row = mysqli_fetch_assoc($requServiceDuJour)) {
+                $nbPlacesPrise = $row['nbPlacePrise'];
+            }
+            echo " reservation prévus pour le midi : $nbPlacesPrise <br>";
+        } else {
+            echo "Pas de reservation enregistré pour le service de midi aujourd'hui <br>";
+        }
+
+        // serice soir
+        $today = date("Y-m-d");
+        $today = str_replace("-", "", $today);
+        $requServiceDuSoir = mysqli_query($base, "SELECT * FROM services WHERE dateService = $today AND typeService = 1");
+        $rows = mysqli_num_rows($requServiceDuSoir);
+
+        if ($rows == 1) {
+            while ($row = mysqli_fetch_assoc($requServiceDuSoir)) {
+                $nbPlacesPrise = $row['nbPlacePrise'];
+            }
+            echo " reservation prévus pour le soir : $nbPlacesPrise <br>";
+        } else {
+            echo "Pas de reservation enregistré pour le service de midi aujourd'hui <br>";
+        }
+    } else {
+        echo "Impossible de se connecter à la base de données";
+    }
+
+    ?>
+
     <!--_______________________________________________ce qui concerne les entrées____________________________________________________________________________________-->
     <hr>
     <h2 class="title_section">Les entrées</h2>
@@ -127,11 +171,6 @@
             <!-- liste qui contient toutes les entrees -->
             <div class="tableau">
                 <?php
-                $link = 'localhost';
-                $user = 'root';
-                $mdp = '';
-                $bdd = 'test_bdd_resto_berger';
-                $base = mysqli_connect($link, $user, $mdp, $bdd);
 
                 if ($base) {
                     $nb_entree = mysqli_query($base, 'SELECT * FROM entree');
@@ -147,8 +186,7 @@
             <div class="add">
                 <!-- formulaire d'ajout d'entrée  -->
                 <h3 class="title_add">Ajout d'une entree</h3>
-                <form class="form_add" enctype="multipart/form-data" action="traitement_php/ajoutentree.php"
-                    method="post">
+                <form class="form_add" enctype="multipart/form-data" action="traitement_php/ajoutentree.php" method="post">
                     <label for="nomEntree">Nom de l'entree :</label><br>
                     <input type="text" name="nomEntree" id="nomEntree" required><br><br>
                     <label for="prixentree">Veuillez saisir le prix de l'entree</label><br>
@@ -207,8 +245,7 @@
             <div class="add">
                 <!-- formulaire d'ajout de plat  -->
                 <h3 class="title_add">Ajout d'un plat</h3>
-                <form class="form_add" enctype="multipart/form-data" action="traitement_php/ajoutplat.php"
-                    method="post">
+                <form class="form_add" enctype="multipart/form-data" action="traitement_php/ajoutplat.php" method="post">
                     <label for="nomPlat">Nom du plat :</label><br>
                     <input type="text" name="nomPlat" id="nomPlat" required><br><br>
                     <label for="prixplat">Veuillez saisir le prix du plat</label><br>
@@ -279,8 +316,7 @@
             <div class="add">
                 <!-- formulaire d'ajout de dessert  -->
                 <h3 class="title_add">Ajout d'un dessert</h3>
-                <form class="form_add" enctype="multipart/form-data" action="traitement_php/ajoutdessert.php"
-                    method="post">
+                <form class="form_add" enctype="multipart/form-data" action="traitement_php/ajoutdessert.php" method="post">
                     <label for="nomDessert">Nom du dessert :</label><br>
                     <input type="text" name="nomDessert" id="nomDessert" required><br><br>
                     <label for="prixdessert">Veuillez saisir le prix du dessert</label><br>
@@ -332,8 +368,7 @@
             <div class="add">
                 <!-- formulaire d'ajout de  boisson -->
                 <h3 class="title_add">Ajout d'une boisson</h3>
-                <form class="form_add" enctype="multipart/form-data" action="traitement_php/ajoutboisson.php"
-                    method="post">
+                <form class="form_add" enctype="multipart/form-data" action="traitement_php/ajoutboisson.php" method="post">
                     <label for="nomBoisson">Nom de la boisson :</label><br>
                     <input type="text" name="nomBoisson" id="nomBoisson" required><br><br>
                     <label for="prixboisson">Veuillez saisir le prix de la boisson</label><br>

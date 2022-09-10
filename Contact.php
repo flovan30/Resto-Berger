@@ -1,4 +1,4 @@
-<?php session_start()?>
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -66,8 +66,8 @@
             </li>
 
             <?php
-    if(!empty($_SESSION['username']) && $_SESSION['admin?'] == 1){
-?>
+            if (!empty($_SESSION['username']) && $_SESSION['admin?'] == 1) {
+            ?>
             <!-- Lien vers le profil si utilisateur connecté admin-->
             <li>
                 <a href="PageAdmin.php">
@@ -79,9 +79,8 @@
                 </a>
             </li>
             <?php
-    }
-    else if(!empty($_SESSION['username']) && $_SESSION['admin?'] == 0){
-        ?>
+            } else if (!empty($_SESSION['username']) && $_SESSION['admin?'] == 0) {
+            ?>
             <!-- Lien vers le profil si utilisateur connecté non-admin-->
             <li>
                 <a href="profile.php">
@@ -93,12 +92,11 @@
                 </a>
             </li>
             <?php
-    }
-    else{
-?>
+            } else {
+            ?>
             <!-- Lien vers la connexion si utilisateur pas connecté-->
             <li>
-                <a href="connexion.php">
+                <a href="connexion.html">
                     <div class="icon">
                         <i class='fas fa-key'></i>
                         <i class='fas fa-key'></i>
@@ -107,8 +105,8 @@
                 </a>
             </li>
             <?php
-    }
-?>
+            }
+            ?>
         </ul>
     </nav>
     <br><br><br><br><br>
@@ -141,7 +139,7 @@
                             </div>
                             <div class="inputBox">
                                 <span>Votre numéro de téléphone : </span>
-                                <input type="text" value="0* ** ** ** **">
+                                <input type="text" placeholder="0* ** ** ** **">
                             </div>
                         </div>
 
