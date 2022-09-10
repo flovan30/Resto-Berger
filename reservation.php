@@ -163,7 +163,7 @@
                     mysqli_query($base, "INSERT INTO reservation (idClient, dateReservation,nbPersonne,idService) VALUES($idClient,$dateReservation,$nbPersonne,$idService)");
                     /* modification de nb place dispo pour ce service */
                     mysqli_query($base, "UPDATE services SET nbPlacePrise = $nbPlacesPrise WHERE idService = $idService");
-                    echo '<body onLoad="alert(\'reservation enregistrer' . $nbPlacesPrise . '\')">';
+                    echo '<body onLoad="alert(\'reservation enregistrer\')">';
                 } else {
                     /* affichage impossible de reserver */
                     echo '<body onLoad="alert(\'Impossible de reserver pour ce jour \n Car il ne reste plus assez de place\')">';
