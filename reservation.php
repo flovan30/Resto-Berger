@@ -156,23 +156,52 @@
             if ($rows == 1) {
                 // boucle pour recuperer le nb place dispo
                 while ($row = mysqli_fetch_assoc($result)) {
-                    $nbPlacesPrise = $row['nbPlacesPrise'];
+                    $nbPlacesPrise = $row['nbPlacePrise'];
+                    $idService = $row['idService'];
                 }
-                echo $nbPlacesPrise;
-                if ($nbPlacesPrise += $nbPersonne <= 70) {
-                    // fermeture de php pour pouvoir donner la possibilité au client de confirmer sa reservation
-        ?>
-
-
-
-    <?php
-                    // fermeture du if avec le calcul de nbPlacesDispo
+                $nbPlacesPrise = $nbPlacesPrise + $nbPersonne;
+                if ($nbPlacesPrise <= 70) {
+                    $idClient = $_SESSION['idClient'];
+                    /* Ajout reservation */
+                    mysqli_query($base, "INSERT INTO reservation (idClient, dateReservation,nbPersonne,idService) VALUES($idClient,$dateReservation,$nbPersonne,$idService)");
+                    /* modification de nb place dispo pour ce service */
+                    mysqli_query($base, "UPDATE services SET nbPlacePrise = $nbPlacesPrise WHERE idService = $idService");
+                    echo '<body onLoad="alert(\'reservation enregistrer' . $nbPlacesPrise . '\')">';
+                } else {
+                    /* affichage impossible de reserver */
+                    echo '<body onLoad="alert(\'Impossible de reserver pour ce jour \n Car il ne reste plus assez de place\')">';
+                    echo '<meta http-equiv="refresh" content="0;URL=reservation.php">';
                 }
                 // fermeture du if si il trouve la date du service dans la bdd
+            } else {
+                $requeteAjoutDate = ("INSERT INTO services (dateService,typeService,nbPlacePrise) VALUES($dateReservation,$typeService,0)");
+                mysqli_query($base, $requeteAjoutDate);
+                $requeteRecupId = ("SELECT * FROM services WHERE dateService = '$dateReservation' AND typeService = '$typeService'");
+                $recupReq = mysqli_query($base, $requeteVerif);
+                $rows = mysqli_num_rows($recupReq);
+
+                while ($row = mysqli_fetch_assoc($recupReq)) {
+                    $nbPlacesPrise = $row['nbPlacePrise'];
+                    $idService = $row['idService'];
+                }
+                $nbPlacesPrise = $nbPlacesPrise + $nbPersonne;
+                /* reverifier si le nb personne est inferieur ou egale à 70 */
+                if ($nbPlacesPrise <= 70) {
+                    $idClient = $_SESSION['idClient'];
+                    /* Ajout reservation */
+                    mysqli_query($base, "INSERT INTO reservation (idClient, dateReservation,nbPersonne,idService) VALUES($idClient,$dateReservation,$nbPersonne,$idService)");
+                    /* modification de nb place dispo pour ce service */
+                    mysqli_query($base, "UPDATE services SET nbPlacePrise = $nbPlacesPrise WHERE idService = $idService");
+                    echo '<body onLoad="alert(\'reservation enregistrer \')">';
+                } else {
+                    /* affichage impossible de reserver */
+                    echo '<body onLoad="alert(\'Impossible de reserver pour ce jour \n Car il ne reste plus assez de place\')">';
+                    echo '<meta http-equiv="refresh" content="0;URL=reservation.php">';
+                }
             }
         } else {
-            $requeteAjoutDate = ("INSERT INTO services (dateService,typeService,nbPlacesPrise) VALUES($dateReservation,$typeService,0)");
-            mysqli_query($base, $requeteAjoutDate);
+            /* toutes les info on pas été entrée */
+            echo '<body onLoad="alert(\'Vous n ' . "'" . ' avez pas entrée toutes les informations nécessaires\')">';
         }
         // fermeture du if si le client n'est pas connecte
     } else {
