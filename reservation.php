@@ -66,6 +66,7 @@
                     <div class="name"><span data-text="Contact">Contact</span></div>
                 </a>
             </li>
+            <p> test </p>
 
             <?php
             if (!empty($_SESSION['username']) && $_SESSION['admin?'] == 1) {
