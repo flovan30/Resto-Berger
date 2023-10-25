@@ -12,7 +12,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link href="https://fonts.googleapis.com/css2?family=Martel:wght@900&display=swap" rel="stylesheet">
-    <title>Gastro Berger - Menu</title>
+    <title>Resto Berger - Menu</title>
 </head>
 
 <body>
