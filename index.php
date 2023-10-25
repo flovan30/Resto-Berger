@@ -9,8 +9,10 @@
     <!--CSS de la NavBar-->
     <link rel="stylesheet" type="text/css" href="style/style_nav.css" />
     <!--Font de texte-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Resto-Berger-restaurant</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Resto-Berger - Restaurant | accueil</title>
 </head>
 
 
@@ -68,7 +70,7 @@
 
         <?php
         if (!empty($_SESSION['username']) && $_SESSION['admin?'] == 1) {
-        ?>
+            ?>
             <!-- Lien vers le profil si utilisateur connecté admin-->
             <li>
                 <a href="PageAdmin.php">
@@ -79,33 +81,33 @@
                     <div class="name"><span data-text="ADMIN">ADMIN</span></div>
                 </a>
             </li>
-        <?php
+            <?php
         } else if (!empty($_SESSION['username']) && $_SESSION['admin?'] == 0) {
-        ?>
-            <!-- Lien vers le profil si utilisateur connecté non-admin-->
-            <li>
-                <a href="profile.php">
-                    <div class="icon">
-                        <i class="fas fa-user"></i>
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <div class="name"><span data-text="Profile">Mon_Profile</span></div>
-                </a>
-            </li>
-        <?php
+            ?>
+                <!-- Lien vers le profil si utilisateur connecté non-admin-->
+                <li>
+                    <a href="profile.php">
+                        <div class="icon">
+                            <i class="fas fa-user"></i>
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="name"><span data-text="Profile">Mon_Profile</span></div>
+                    </a>
+                </li>
+            <?php
         } else {
-        ?>
-            <!-- Lien vers la connexion si utilisateur pas connecté-->
-            <li>
-                <a href="connexion.html">
-                    <div class="icon">
-                        <i class='fas fa-key'></i>
-                        <i class='fas fa-key'></i>
-                    </div>
-                    <div class="name"><span data-text="Connexion">Connexion</span></div>
-                </a>
-            </li>
-        <?php
+            ?>
+                <!-- Lien vers la connexion si utilisateur pas connecté-->
+                <li>
+                    <a href="connexion.html">
+                        <div class="icon">
+                            <i class='fas fa-key'></i>
+                            <i class='fas fa-key'></i>
+                        </div>
+                        <div class="name"><span data-text="Connexion">Connexion</span></div>
+                    </a>
+                </li>
+            <?php
         }
         ?>
     </ul>
@@ -115,7 +117,7 @@
 
 <body>
     <header>
-        <h1 class="title_resto-berger"><span class="orange">new Resto</span>-<span class="rouge">Berger</span></h1>
+        <h1 class="title_resto-berger"><span class="orange">Resto</span>-<span class="rouge">Berger</span></h1>
         <h4 class="subtitle_resto-berger">Bienvenue sur le restaurant d'application Gaston Berger</h4>
     </header>
     <main>
@@ -123,7 +125,8 @@
             <div class="card">
                 <div class="left">
                     <h1><span class="orange">Restaurant</span></h1>
-                    <p>Bienvenue sur le site du restaurant d'application <span class="orange">Resto</span>-<span class="rouge">Berger</span> du campus de Gaston Berger, en partenariat avec le lycée
+                    <p>Bienvenue sur le site du restaurant d'application <span class="orange">Resto</span>-<span
+                            class="rouge">Berger</span> du campus de Gaston Berger, en partenariat avec le lycée
                         hôtelier de
                         lille.<br>
                         Le restaurant <span class="orange">Resto</span>-<span class="rouge">Berger</span> a été crée par

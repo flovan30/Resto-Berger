@@ -153,7 +153,7 @@
             }
             echo " reservation prévus pour le soir : $nbPlacesPrise <br>";
         } else {
-            echo "Pas de reservation enregistré pour le service de midi aujourd'hui <br>";
+            echo "Pas de reservation enregistré pour le service du soir aujourd'hui <br>";
         }
     } else {
         echo "Impossible de se connecter à la base de données";

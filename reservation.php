@@ -11,7 +11,7 @@
     <!--Font de texte-->
     <link href="https://fonts.googleapis.com/css2?family=Kenia&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Gastro-Berger-restaurant</title>
+    <title>Resto Berger - Reservation</title>
 </head>
 
 <body>
@@ -203,7 +203,7 @@
         }
         // fermeture du if si le client n'est pas connecte
     } else {
-        echo "<div class='notConnect'><h3 class='alert'>Veuillez vous connecter pour reserver : <a href='connexion.php'>Connectez-vous</a></h3></div>";
+        echo "<div class='notConnect'><h3 class='alert'>Veuillez vous connecter pour reserver : <a href='connexion.html'>Connectez-vous</a></h3></div>";
     }
     ?>
 </body>
